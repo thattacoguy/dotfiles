@@ -1,0 +1,1 @@
+/home/taco/.config/i3/scripts/lock.sh
