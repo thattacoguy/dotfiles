@@ -216,35 +216,38 @@ bar {
 
 bindsym $mod+shift+x exec ~/.config/i3/scripts/lock.sh
 
-## Audio controls
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+## audio controls
+# (used for pulseaudio)
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+# mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-# Sreen brightness controls
+## screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
+## touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # set tap to click
 exec xinput set-prop 14 291 1
 # set natural scrolling
 exec xinput set-prop 14 278 1
+
+##
 # set hack for my current laptop - some keys on it don't work
 exec_always xmodmap -e 'keycode 117=Right'
 
 
-# Media player controls
+## media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym $mod+x [urgent=latest] focus
-
-# set background
+## background
 exec_always feh --bg-center /home/taco/Pictures/worlds-bg.png
 
 # double buffering with smooth transitions
