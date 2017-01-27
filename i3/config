@@ -56,13 +56,32 @@ font pango:$title-font
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-## programs
+### programs ###
+
+## bindings
 # start a terminal
 bindsym $mod+Return exec termite
 
+## autostart
 # start rofi
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0
+# start dunst
+exec_always dunst
 
+## force floating
+for_window [class="Blockify"] floating enable
+
+## force location
+# workspace1
+assign [class="Atom"] → $workspace1
+# workspace2 [browsing]
+assign [class="Google-chrome"] → $workspace2
+# workspace3 [work]
+# workspace4 [comms]
+assign [class="discord"] → $workspace4
+# workspace5 [music]
+assign [class="Spotify"] → $workspace5
+assign [class="Blockify"] → $workspace5
 
 
 ### window management ###
@@ -152,6 +171,7 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
 
+### core functions ###
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -185,7 +205,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-## styling
+### styling ###
 
 # window colors
 #                       border                background         text                 indicator
@@ -214,7 +234,10 @@ bar {
   position bottom
 }
 
+# lock screen with custom lock script
 bindsym $mod+shift+x exec ~/.config/i3/scripts/lock.sh
+
+### keybinding controls ###
 
 ## audio controls
 # (used for pulseaudio)
@@ -239,7 +262,6 @@ exec xinput set-prop 14 278 1
 ##
 # set hack for my current laptop - some keys on it don't work
 exec_always xmodmap -e 'keycode 117=Right'
-
 
 ## media player controls
 bindsym XF86AudioPlay exec playerctl play
