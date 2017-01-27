@@ -30,9 +30,7 @@ alias define="sdcv $1"
 alias zshreload="source ~/.zshrc"
 
 # configuration shortcuts
-alias hyperconfig="atom ~/.hyper.js"
-alias zshconfig="atom ~/.zshrc"
-alias i3config="atom ~/.config/i3/config"
+alias dotfiles="atom ~/.dotfiles"
 
 # directory shortcuts
 alias code="cd /mnt/lechuga/code/"
