@@ -30,9 +30,10 @@ alias define="sdcv $1"
 alias zshreload="source ~/.zshrc"
 
 # configuration shortcuts
-alias dotfiles="atom ~/.dotfiles"
+alias dotconfig="atom ~/.dotfiles"
 
 # directory shortcuts
+alias dotfiles="cd ~/.dotfiles"
 alias code="cd /mnt/lechuga/code/"
 alias devacademy="cd /mnt/lechuga/code/dev/academy/"
 alias dev="cd /mnt/lechuga/code/dev/"
