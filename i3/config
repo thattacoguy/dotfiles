@@ -197,7 +197,6 @@ client.urgent           $urgent-bg            $urgent-bg         $urgent-text   
 # spacing
 gaps inner 10
 gaps outer 0
-smart_gaps on
 
 ## status bar
 bar {
