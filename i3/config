@@ -264,8 +264,7 @@ exec xinput set-prop 14 278 1
 exec_always xmodmap -e 'keycode 117=Right'
 
 ## media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
