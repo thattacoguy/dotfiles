@@ -63,13 +63,16 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 
 ## autostart
+# double buffering with smooth transitions
+exec_always compton -f
 # start rofi
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0
+bindsym $mod+d exec rofi -show run -opacity 85
 # start dunst
 exec_always dunst
 
 ## force floating
 for_window [class="Blockify"] floating enable
+for_window [class="deadbeef"] floating enable
 
 ## force location
 # workspace1
@@ -80,7 +83,8 @@ assign [class="Google-chrome"] → $workspace2
 # workspace4 [comms]
 assign [class="discord"] → $workspace4
 # workspace5 [music]
-assign [class="Spotify"] → $workspace5
+for_window [class="Spotify"] move to workspace $workspace5
+assign [class="deadbeef"] → $workspace5
 assign [class="Blockify"] → $workspace5
 
 
@@ -220,7 +224,7 @@ gaps outer 0
 
 ## status bar
 bar {
-  status_command i3status
+  status_command py3status
   strip_workspace_numbers yes
   font pango:Fira Code, Font Awesome Regular 10
 	colors {
@@ -270,9 +274,6 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## background
 exec_always feh --bg-center /home/taco/Pictures/worlds-bg.png
-
-# double buffering with smooth transitions
-exec_always compton -f
 
 ### assignments ###
 
