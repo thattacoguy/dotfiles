@@ -43,10 +43,10 @@
 
     # the geometry of the window
     # geometry [{width}]x{height}[+/-{x}+/-{y}]
-    geometry = "0x15-50+50"
+    geometry = "500x15-50+50"
 
     # Shrink window if it's smaller than the width. Will be ignored if width is 0.
-    shrink = yes
+    shrink = no
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -105,7 +105,7 @@
     # print a notification on startup
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    startup_notification = true
 
     # dmenu path
     dmenu = /usr/bin/dmenu -p dunst:
@@ -114,8 +114,8 @@
     browser = /usr/bin/firefox -new-tab
 
 [frame]
-    width = 1
-    color = "#E2E2E5"
+    width = 3
+    color = "#303030"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -124,7 +124,7 @@
     # xev might be helpful to find names for keys
 
     # close notification
-    #close = ctrl+space
+    close = ctrl+space
 
     # close all notifications
     #close_all = ctrl+shift+space
