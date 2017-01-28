@@ -25,6 +25,7 @@ export TERM=xterm-256color
 # command aliases for arch
 alias subl="subl3 $1"
 alias define="sdcv $1"
+alias system-update="yaourt -Syua"
 
 # zsh reload configuration
 alias zshreload="source ~/.zshrc"
@@ -45,3 +46,9 @@ alias itsae="cd /mnt/lechuga/code/itsae/"
 export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
 export PATH=~/.npm-global/bin:$PATH # Add NPM global config for scripting
 export PATH=$JAVA_HOME:$PATH # Add NPM global config for scripting
+export ANDROID_HOME=~/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Load RVM into a shell session *as a function*
