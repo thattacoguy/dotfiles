@@ -32,7 +32,7 @@ arch_updates {
 exchange_rate {
   base = 'USD'
   format = '${USD} ➡️ S./{PEN}'
-}34
+}
 
 online_status {
   icon_off = ''
