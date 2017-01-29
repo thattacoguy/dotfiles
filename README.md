@@ -33,6 +33,6 @@ ln -s ~/.dotfiles/i3/config ~/.config/i3/config
 ```
 3. Rice to your heart's content.
 
-## icense
+## legal
 
-[MIT](LICENSE)
+Licensed under the [MIT License](LICENSE)
