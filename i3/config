@@ -29,27 +29,8 @@ set $color-purple         #6d506d
 set $color-cyan           #4bb5c1
 set $color-white          #E2E2E5
 
-
-# (i3 doesn't allow variable chaining, so i just restate the same colors here)
-set $focused-bg           #303030
-# $color-gray
-set $focused-text         #6ded00
-# custom green color
-
-set $unfocused-bg         #5f5f5f
-# $color-light-gray
-set $unfocused-text       #E2E2E5
-# $color-white
-
-set $urgent-bg            #c03000
-# $color-red
-set $urgent-text          #fecf35
-# $color-yellow
-
-## fonts
-
 # set variables
-set $title-font Fira Code 10
+set $title-font Fira Mono 0
 
 # font used for window titles
 font pango:$title-font
@@ -116,7 +97,6 @@ bindsym $mod+Right focus right
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
 
 ## scratchpads
 # convert to scratchpad
@@ -231,14 +211,17 @@ bindsym $mod+r mode "resize"
 
 # window colors
 #                       border                background         text                 indicator
-client.focused          $focused-bg           $focused-bg        $focused-text        $focused-bg
-client.unfocused        $unfocused-bg         $unfocused-bg      $unfocused-text      $uncofused-bg
-client.focused_inactive $unfocused-bg         $unfocused-bg      $unfocused-text      $unfocused-bg
-client.urgent           $urgent-bg            $urgent-bg         $urgent-text         $urgent-bg
+client.focused          $color-green          $color-green       $color-green         $color-green
+client.unfocused        $color-gray           $color-gray        $color-white         $color-red
+client.focused_inactive $color-light-gray     $color-light-gray  $color-white         $color-light-gray
+client.urgent           $color-red            $color-red         $color-yellow        $color-red
 
 # spacing
 gaps inner 10
 gaps outer 0
+
+# border
+new_window pixel 3
 
 ## status bar
 
