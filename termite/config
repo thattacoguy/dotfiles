@@ -1,11 +1,12 @@
 [options]
 font = Source Code Pro 11
+cursor_shape = ibeam
 
 [colors]
 # special
-foreground      = #6ded00
-foreground_bold = #6ded00
-cursor          = #6ded00
+foreground      = #b1d631
+foreground_bold = #b1d631
+cursor          = #b1d631
 background      = rgba(0, 0, 0, 0.8)
 
 # black
