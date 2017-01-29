@@ -62,18 +62,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
-## autostart
-# double buffering with smooth transitions
-exec_always compton -f
-# start rofi
-bindsym $mod+d exec rofi -show run -opacity 85
-# start dunst
-exec_always dunst
-
-## force floating
-for_window [class="Blockify"] floating enable
-for_window [class="deadbeef"] floating enable
-
 ## force location
 # workspace1
 assign [class="Atom"] → $workspace1
@@ -86,7 +74,27 @@ assign [class="discord"] → $workspace4
 for_window [class="Spotify"] move to workspace $workspace5
 assign [class="deadbeef"] → $workspace5
 assign [class="Blockify"] → $workspace5
+## force floating
+for_window [class="Blockify"] floating enable
+for_window [class="deadbeef"] floating enable
 
+
+## autostart
+# double buffering with smooth transitions
+exec_always compton -f
+# start rofi
+bindsym $mod+d exec rofi -show run -opacity 85
+# start dunst
+exec_always dunst
+exec discord
+exec google-chrome
+exec spotify
+exec blockify-ui
+exec atom
+
+### monitor management ###
+
+exec_always xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1
 
 ### window management ###
 
@@ -105,6 +113,13 @@ bindsym $mod+Right focus right
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+
+## scratchpads
+# convert to scratchpad
+bindsym $mod+Shift+z move scratchpad
+# show scratchpad
+bindsym $mod+z scratchpad show
 
 ## window shifting
 # move focused window
@@ -152,16 +167,16 @@ set $workspace9 9
 set $workspace0 10
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace0
+bindsym $mod+1 exec "i3-msg workspace $workspace1; i3-msg scratchpad show"
+bindsym $mod+2 exec "i3-msg workspace $workspace2; i3-msg scratchpad show"
+bindsym $mod+3 exec "i3-msg workspace $workspace3; i3-msg scratchpad show"
+bindsym $mod+4 exec "i3-msg workspace $workspace4; i3-msg scratchpad show"
+bindsym $mod+5 exec "i3-msg workspace $workspace5; i3-msg scratchpad show"
+bindsym $mod+6 exec "i3-msg workspace $workspace6; i3-msg scratchpad show"
+bindsym $mod+7 exec "i3-msg workspace $workspace7; i3-msg scratchpad show"
+bindsym $mod+8 exec "i3-msg workspace $workspace8; i3-msg scratchpad show"
+bindsym $mod+9 exec "i3-msg workspace $workspace9; i3-msg scratchpad show"
+bindsym $mod+0 exec "i3-msg workspace $workspace0; i3-msg scratchpad show"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
