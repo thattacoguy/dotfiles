@@ -1,0 +1,184 @@
+[colors]
+color-black = #000000
+color-gray = #303030
+color-light-gray = #5f5f5f
+color-red = #c03000
+color-pink = #ff3a78
+color-green = #b1d631
+color-dark-green = #a6cd07
+color-yellow = #fecf35
+color-light-yellow = #b5c865
+color-blue = #426870
+color-light-blue = #4a7781
+color-purple = #6d506d
+color-cyan = #4bb5c1
+color-white = #E2E2E5
+
+background = #303030
+foreground = #E2E2E5
+
+background-focused = ${colors.color-gray}
+text-focused = ${colors.color-green}
+
+background-unfocused = #303030
+text-unfocused = #E2E2E5
+
+background-urgent = #c03000
+text-urgent = #fecf35
+
+[bar/top]
+width = 100%
+height = 27
+radius = 0.0
+fixed-center = false
+bottom = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; line
+line-size = 3
+line-color = #f00
+; border
+border-size = 0
+border-color = #00000000
+
+; padding
+padding-left = 0
+padding-right = 2
+
+; padding
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Fira Mono:pixelsize=10;0"
+font-1 = "Font Awesome:pixelsize=10;1"
+font-2 = siji:pixelsize=10;1
+
+; modules
+modules-left = i3
+modules-right = volume date powermenu
+
+; tray
+tray-position = right
+tray-padding = 0
+
+;tray-transparent = true
+;tray-background = #0063ff
+
+;override-redirect = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+
+
+label-mode-padding = 0
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+
+label-focused = %name%
+label-focused-background = ${colors.background-focused}
+label-focused-foreground = ${colors.text-focused}
+label-focused-underline = ${colors.text-focused}
+label-focused-padding = 1
+
+label-unfocused = %name%
+label-unfocused-background = ${colors.background}
+label-unfocused-underline = ${colors.foreground}
+label-unfocused-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.background-urgent}
+label-urgent-padding = 1
+
+label-visible = %index%
+label-visible-background = ${colors.background-focused}
+label-visible-underline =
+label-visible-padding =
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%A, %d %b %Y"
+
+time = %l:%M:%S %p
+
+format-prefix = " "
+format-prefix-foregound = ${colors.foreground}
+format-underline = ${colors.color-blue}
+format-underline-size = 5
+label = "%date% | %time%"
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = ""
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.color-red}
+label-muted = muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.color-green}
+bar-volume-foreground-1 = ${colors.color-green}
+bar-volume-foreground-2 = ${colors.color-green}
+bar-volume-foreground-3 = ${colors.color-green}
+bar-volume-foreground-4 = ${colors.color-green}
+bar-volume-gradient = false
+bar-volume-indicator = 	▮
+bar-volume-indicator-font = 2
+bar-volume-indicator-color = ${colors.color-green}
+bar-volume-fill = ■
+bar-volume-fill-font = 2
+bar-volume-empty = ■
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.foreground}
+label-close =  cancel
+label-close-foreground = ${colors.foreground}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini

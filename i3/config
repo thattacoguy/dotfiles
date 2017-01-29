@@ -92,6 +92,9 @@ exec spotify
 exec blockify-ui
 exec atom
 
+# start authentication manager for updates
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 ### monitor management ###
 
 exec_always xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1
@@ -238,20 +241,8 @@ gaps inner 10
 gaps outer 0
 
 ## status bar
-bar {
-  status_command py3status
-  strip_workspace_numbers yes
-  font pango:Fira Code, Font Awesome Regular 10
-	colors {
-		background $color-gray
-  	separator  $focused-text
-		#                  border             background          text
-		focused_workspace  $color-gray        $color-gray         $focused-text
-		inactive_workspace $color-gray        $color-gray         $unfocused-text
-		urgent_workspace   $urgent-bg         $urgent-bg          $urgent-text
-	}
-  position bottom
-}
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # lock screen with custom lock script
 bindsym $mod+shift+x exec ~/.config/i3/scripts/lock.sh
@@ -274,9 +265,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 ## touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # set tap to click
-exec xinput set-prop 14 291 1
+exec_always xinput set-prop 14 291 1
 # set natural scrolling
-exec xinput set-prop 14 278 1
+exec_always xinput set-prop 14 278 1
 
 ##
 # set hack for my current laptop - some keys on it don't work
