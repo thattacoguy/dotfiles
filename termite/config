@@ -1,0 +1,41 @@
+[options]
+font = Source Code Pro 11
+
+[colors]
+# special
+foreground      = #6ded00
+foreground_bold = #6ded00
+cursor          = #6ded00
+background      = rgba(0, 0, 0, 0.8)
+
+# black
+color0  = #303030
+color8  = #5f5f5f
+
+# red
+color1  = #c03000
+color9  = #ff3a78
+
+# green
+color2  = #b1d631
+color10 = #a6cd07
+
+# yellow
+color3  = #fecf35
+color11 = #b5c865
+
+# blue
+color4  = #426870
+color12 = #4a7781
+
+# magenta
+color5  = #6d506d
+color13 = #ff3b77
+
+# cyan
+color6  = #4bb5c1
+color14 = #4bb5c1
+
+# white
+color7  = #e2e2e5
+color15 = #e2e2e5
