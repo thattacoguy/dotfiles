@@ -5,7 +5,7 @@ My personal collection of dotfiles.
 ## current setup
 
 | element | program | config file(s) | local config  |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | window manager | [i3](https://i3wm.org/) | `i3/` | `~/.config/i3/` |
 | statusbar | [polybar](https://github.com/jaagr/polybar) | `polybar/` | `~/.config/polybar/` |
 | notifications | [dunst](https://github.com/dunst-project/dunst) | `dunstrc` | `~/.config/dunstrc` |
