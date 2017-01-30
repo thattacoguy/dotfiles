@@ -249,9 +249,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 ## touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # set tap to click
-exec_always xinput set-prop 15 293 1
+exec_always xinput --set-prop --type=int --format=8  "Elan Touchpad" "libinput Tapping Enabled" 1
 # set natural scrolling
-exec_always xinput set-prop 15 280 1
+exec_always xinput --set-prop --type=int --format=8  "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # set hack for my current laptop - some keys on it don't work
 exec_always xmodmap -e 'keycode 117=Right'
