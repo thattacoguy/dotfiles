@@ -68,10 +68,11 @@ bindsym $mod+d exec rofi -show run -opacity 85
 # start dunst
 exec_always dunst
 exec discord
-exec google-chrome
+exec google-chrome-stable
 exec spotify
 exec blockify-ui
 exec atom
+exec nm-applet
 
 # start authentication manager for updates
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -221,7 +222,7 @@ gaps inner 10
 gaps outer 0
 
 # border
-new_window pixel 3
+new_window pixel
 
 ## status bar
 
@@ -248,11 +249,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 ## touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # set tap to click
-exec_always xinput set-prop 14 291 1
+exec_always xinput set-prop 15 293 1
 # set natural scrolling
-exec_always xinput set-prop 14 278 1
+exec_always xinput set-prop 15 280 1
 
-##
 # set hack for my current laptop - some keys on it don't work
 exec_always xmodmap -e 'keycode 117=Right'
 
@@ -262,7 +262,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## background
-exec_always feh --bg-center /home/taco/Pictures/worlds-bg.png
+exec_always feh --bg-fill /home/taco/Pictures/wallpapers/Firewatch/5SEZKVU.jpg
 
 ### assignments ###
 

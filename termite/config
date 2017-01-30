@@ -1,5 +1,5 @@
 [options]
-font = Source Code Pro 11
+font = Fira Mono 10
 cursor_shape = ibeam
 
 [colors]
