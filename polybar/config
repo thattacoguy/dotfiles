@@ -94,6 +94,8 @@ label-unfocused-padding = 1
 
 label-urgent = %name%
 label-urgent-background = ${colors.background-urgent}
+label-urgent-foreground = ${colors.text-urgent}
+label-urgent-underline = ${colors.text-urgent}
 label-urgent-padding = 1
 
 label-visible = %name%
