@@ -2,7 +2,7 @@
 
 directories=(i3 i3/scripts gtk-3.0 polybar termite vis)
 
-config_files=(i3/scripts/lock.sh i3/config polybar/config polybar/launch.sh termite/config vis/config dunstrc)
+config_files=(i3/scripts/lock.sh i3/config polybar/config polybar/launch.sh termite/config vis/config dunstrc gtk-3.0/gtk.css)
 
 function dirnotif {
   echo "Directory for $1 doesn't exist, creating it."
