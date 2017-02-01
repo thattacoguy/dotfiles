@@ -190,20 +190,6 @@ exec nm-applet
 for_window [class="Blockify"] floating enable
 for_window [class="deadbeef"] floating enable
 
-## autostart
-# double buffering with smooth transitions
-exec_always compton -f
-# start rofi
-bindsym $mod+d exec rofi -show run -opacity 85
-# start dunst
-exec_always dunst
-exec discord
-exec google-chrome-stable
-exec spotify
-exec blockify-ui
-exec atom
-exec nm-applet
-
 ### core functions ###
 # reload the configuration file
 bindsym $mod+Shift+c reload
