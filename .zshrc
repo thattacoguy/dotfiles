@@ -46,8 +46,10 @@ alias itsae="cd /mnt/lechuga/code/itsae/"
 export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
 export PATH=~/.npm-global/bin:$PATH # Add NPM global config for scripting
 export PATH=$JAVA_HOME:$PATH # Add NPM global config for scripting
-export ANDROID_HOME=/mnet/lechuga/code/_utils/android/sdk/
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export ANDROID_HOME=/mnt/lechuga/code/_utils/android/sdk/
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
