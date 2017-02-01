@@ -43,37 +43,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
-## force location
-# workspace1
-assign [class="Atom"] → $workspace1
-# workspace2 [browsing]
-assign [class="Google-chrome"] → $workspace2
-# workspace3 [work]
-# workspace4 [comms]
-assign [class="discord"] → $workspace4
-# workspace5 [music]
-for_window [class="Spotify"] move to workspace $workspace5
-assign [class="deadbeef"] → $workspace5
-assign [class="Blockify"] → $workspace5
-## force floating
-for_window [class="Blockify"] floating enable
-for_window [class="deadbeef"] floating enable
-
-
-## autostart
-# double buffering with smooth transitions
-exec_always compton -f
-# start rofi
-bindsym $mod+d exec rofi -show run -opacity 85
-# start dunst
-exec_always dunst
-exec discord
-exec google-chrome-stable
-exec spotify
-exec blockify-ui
-exec atom
-exec nm-applet
-
 # start authentication manager for updates
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
@@ -173,6 +142,67 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
+
+## force location
+# workspace1
+assign [class="Atom"] → $workspace1
+# workspace2 [browsing]
+assign [class="Google-chrome"] → $workspace2
+# workspace3 [work]
+# workspace4 [comms]
+assign [class="discord"] → $workspace4
+# workspace5 [music]
+for_window [class="Spotify"] move to workspace $workspace5
+assign [class="deadbeef"] → $workspace5
+assign [class="Blockify"] → $workspace5## force location
+# workspace1
+assign [class="Atom"] → $workspace1
+# workspace2 [browsing]
+assign [class="Google-chrome"] → $workspace2
+# workspace3 [work]
+# workspace4 [comms]
+assign [class="discord"] → $workspace4
+# workspace5 [music]
+for_window [class="Spotify"] move to workspace $workspace5
+assign [class="deadbeef"] → $workspace5
+assign [class="Blockify"] → $workspace5
+# workspace7 [games]
+assign [class="Steam"] → $workspace7
+## force floating
+for_window [class="Blockify"] floating enable
+for_window [class="deadbeef"] floating enable
+
+
+## autostart
+# double buffering with smooth transitions
+exec_always compton -f
+# start rofi
+bindsym $mod+d exec rofi -show run -opacity 85
+# start dunst
+exec_always dunst
+exec discord
+exec google-chrome-stable
+exec spotify
+exec blockify-ui
+exec atom
+exec nm-applet
+## force floating
+for_window [class="Blockify"] floating enable
+for_window [class="deadbeef"] floating enable
+
+## autostart
+# double buffering with smooth transitions
+exec_always compton -f
+# start rofi
+bindsym $mod+d exec rofi -show run -opacity 85
+# start dunst
+exec_always dunst
+exec discord
+exec google-chrome-stable
+exec spotify
+exec blockify-ui
+exec atom
+exec nm-applet
 
 ### core functions ###
 # reload the configuration file
