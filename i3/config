@@ -177,7 +177,7 @@ for_window [class="deadbeef"] floating enable
 # double buffering with smooth transitions
 exec_always compton -f
 # start rofi
-bindsym $mod+d exec rofi -show run -opacity 85
+bindsym $mod+d exec rofi -show run
 # start dunst
 exec_always dunst
 exec discord
@@ -238,10 +238,9 @@ gaps inner 10
 gaps outer 0
 
 # border
-new_window pixel
+new_window pixel 1
 
 ## status bar
-
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # lock screen with custom lock script
@@ -278,7 +277,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## background
-exec_always feh --bg-fill /home/taco/Pictures/wallpapers/Firewatch/5SEZKVU.jpg
+exec_always feh --bg-fill /home/taco/Pictures/wallpapers/Firewatch/tE9TEKI.jpg
 
 ### assignments ###
 

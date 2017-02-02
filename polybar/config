@@ -14,13 +14,15 @@ color-purple = #6d506d
 color-cyan = #4bb5c1
 color-white = #E2E2E5
 
-background = #303030
+transparent =
+
+background = ${colors.transparent}
 foreground = #E2E2E5
 
-background-focused = ${colors.color-gray}
+background-focused = ${colors.transparent}
 text-focused = ${colors.color-green}
 
-background-unfocused = #303030
+background-unfocused = ${colors.transparent}
 text-unfocused = #E2E2E5
 
 background-urgent = #c03000
@@ -28,44 +30,39 @@ text-urgent = #fecf35
 
 [bar/top]
 width = 100%
-height = 30
+height = 24
 radius = 0.0
-fixed-center = false
+fixed-center = true
 bottom = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+tray-position = right
+tray-padding = 0
+tray-detached = false
+
 ; line
-line-size = 5
+line-size = 3
 line-color = #f00
 ; border
 border-size = 0
 
 ; padding
-padding-left = 0
-padding-right = 2
+padding-left = 2
+padding-right = 1
 
 ; padding
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Fira Mono:pixelsize=10;0"
-font-1 = "Font Awesome:pixelsize=10;1"
+font-0 = "Fira Mono:pixelsize=8;0"
+font-1 = "Font Awesome:pixelsize=8;1"
 font-2 = siji:pixelsize=10;1
 
 ; modules
 modules-left = i3
 modules-center = title
-modules-right = volume date tray_menu powermenu
-
-; tray
-tray-position = right
-tray-padding = 0
-
-;tray-transparent = true
-;tray-background = #0063ff
-
-;override-redirect = true
+modules-right = volume battery date powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -149,31 +146,79 @@ bar-volume-empty = ■
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 1
+
+time-format = %H:%M:%S
+
+format-charging = <label-charging> <animation-charging>
+format-charging-foreground = ${colors.color-green}
+format-discharging = <label-discharging> <ramp-capacity>
+format-discharging-foreground = ${colors.color-yellow}
+format-full = <label-full> <ramp-capacity>
+format-full-foreground = ${colors.color-green}
+
+label-charging = Charging - %percentage%% [%time%]
+
+label-discharging = Discharging - %percentage%% [%time%]
+
+label-full = Fully charged - %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 500
+
 [module/powermenu]
 type = custom/menu
 
-format-spacing = 1
-
 label-open = 
-label-open-foreground = ${colors.foreground}
-label-close =  cancel
-label-close-foreground = ${colors.foreground}
+label-close = 
 label-separator = |
-label-separator-foreground = ${colors.foreground}
+label-separator-margin = 1
 
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
+menu-0-0 = Terminate WM
+menu-0-0-foreground = ${colors.color-green}
+menu-0-0-exec = i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
+menu-0-1 = Reboot
+menu-0-1-foreground = ${colors.color-red}
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-foreground = ${colors.color-red}
+menu-0-2-exec = menu-open-2
+menu-0-3 = Lock
+menu-0-3-foreground = ${colors.color-yellow}
+menu-0-3-exec = ~/.config/i3/scripts/lock.sh
 
-menu-1-0 = cancel
+menu-1-0 = Cancel
+menu-1-0-foreground = ${colors.foreground}
 menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1 = Reboot
+menu-1-1-foreground = ${colors.color-red}
+menu-1-1-exec = reboot
 
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
+menu-2-0 = Power off
+menu-2-0-foreground = ${colors.color-red}
+menu-2-0-exec = shutdown now
+menu-2-1 = Cancel
+menu-2-1-foreground = ${colors.foreground}
 menu-2-1-exec = menu-open-0
 
 [settings]
@@ -186,5 +231,6 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
+
 
 ; vim:ft=dosini
