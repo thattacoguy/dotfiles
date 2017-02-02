@@ -1,5 +1,5 @@
 [global]
-    font = Fira Code 10
+    font = Fira Code 8
 
     allow_markup = yes
 
@@ -114,8 +114,8 @@
     browser = /usr/bin/firefox -new-tab
 
 [frame]
-    width = 3
-    color = "#303030"
+    width = 1
+    color = "#b1d631"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -139,13 +139,13 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#303030"
+    foreground = "#E2E2E5"
     timeout = 10
 
 [urgency_normal]
     background = "#303030"
-    foreground = "#6ded00"
+    foreground = "#b1d631"
     timeout = 10
 
 [urgency_critical]
