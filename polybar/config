@@ -137,14 +137,11 @@ format-muted-prefix = " "
 format-muted-foreground = ${colors.color-red}
 label-muted = muted
 
-bar-volume-width = 10
+bar-volume-width = 20
 bar-volume-foreground-0 = ${colors.color-green}
-bar-volume-foreground-1 = ${colors.color-green}
-bar-volume-foreground-2 = ${colors.color-green}
-bar-volume-foreground-3 = ${colors.color-green}
-bar-volume-foreground-4 = ${colors.color-green}
 bar-volume-gradient = false
-bar-volume-indicator = 	▮
+bar-volume-indicator = 	█
+bar-volume-indicator-foreground = ${colors.color-green}
 bar-volume-indicator-font = 2
 bar-volume-fill = ■
 bar-volume-fill-font = 2

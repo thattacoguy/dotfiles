@@ -44,6 +44,7 @@
     "space_in_empty_paren": false,
     "space_in_paren": true,
     "unescape_strings": false,
-    "wrap_line_length": 100
+    "wrap_line_length": 100,
+    "end_with_comma": true
   }
 }
