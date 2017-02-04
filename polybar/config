@@ -111,7 +111,7 @@ label-maxlen = 50
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = "%A, %d %b %Y"
 

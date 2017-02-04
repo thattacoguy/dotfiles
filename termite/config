@@ -1,6 +1,7 @@
 [options]
 font = Fira Mono 8
 cursor_shape = ibeam
+scrollback_lines = 100000
 
 [colors]
 # special

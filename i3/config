@@ -108,14 +108,14 @@ bindsym $mod+space focus mode_toggle
 ## workspaces
 # set workspace name variables
 set $workspace1 1:[  code ]
-set $workspace2 2:[  browse ]
-set $workspace3 3:[  work ]
-set $workspace4 4:[  comms ]
-set $workspace5 5:[  noise ]
-set $workspace6 6:[  sys ]
-set $workspace7 7:[  game ]
+set $workspace2 2:[  preview ]
+set $workspace3 3:[  browse ]
+set $workspace4 4:[  work ]
+set $workspace5 5:[  comms ]
+set $workspace6 6:[  noise ]
+set $workspace7 7:[  sys ]
+set $workspace8 8:[  game ]
 # the ones below are intentionally left empty for later use
-set $workspace8 8
 set $workspace9 9
 set $workspace0 10
 
@@ -146,30 +146,26 @@ bindsym $mod+Shift+0 move container to workspace $workspace0
 ## force location
 # workspace1
 assign [class="Atom"] → $workspace1
-# workspace2 [browsing]
-assign [class="Google-chrome"] → $workspace2
-# workspace3 [work]
-# workspace4 [comms]
-assign [class="discord"] → $workspace4
-# workspace5 [music]
-for_window [class="Spotify"] move to workspace $workspace5
-assign [class="deadbeef"] → $workspace5
-assign [class="Blockify"] → $workspace5## force location
-# workspace1
-assign [class="Atom"] → $workspace1
-# workspace2 [browsing]
-assign [class="Google-chrome"] → $workspace2
-# workspace3 [work]
-# workspace4 [comms]
-assign [class="discord"] → $workspace4
-# workspace5 [music]
-for_window [class="Spotify"] move to workspace $workspace5
-assign [class="deadbeef"] → $workspace5
-assign [class="Blockify"] → $workspace5
-# workspace7 [games]
-assign [class="Steam"] → $workspace7
+
+# workspace3 [browsing]
+assign [class="Google-chrome"] → $workspace3
+
+# workspace4 [work]
+
+# workspace5 [comms]
+assign [class="discord"] → $workspace5
+
+# workspace6 [music]
+for_window [class="Spotify"] move to workspace $workspace6
+assign [class="deadbeef"] → $workspace6
+assign [class="Blockify"] → $workspace6
+
+# workspace8 [games]
+assign [class="Steam"] → $workspace8
+
 ## force floating
 for_window [class="Blockify"] floating enable
+for_window [class="cinnamon-settings.py"] floating enable
 for_window [class="deadbeef"] floating enable
 
 
