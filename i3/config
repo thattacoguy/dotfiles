@@ -274,9 +274,3 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## background
 exec_always feh --bg-fill /home/taco/Pictures/wallpapers/Firewatch/tE9TEKI.jpg
-
-### assignments ###
-
-assign [class="Atom"] $workspace1
-assign [class="Discord"] $workspace4
-assign [class="Spotify"] $workspace5
