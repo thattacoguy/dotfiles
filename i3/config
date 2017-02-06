@@ -167,6 +167,7 @@ assign [class="Steam"] → $workspace8
 for_window [class="Blockify"] floating enable
 for_window [class="cinnamon-settings.py"] floating enable
 for_window [class="deadbeef"] floating enable
+for_window [class="thunar"] floating enable
 
 
 ## autostart
