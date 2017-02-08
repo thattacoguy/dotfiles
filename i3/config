@@ -103,7 +103,7 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+alt focus mode_toggle
 
 ## workspaces
 # set workspace name variables
@@ -167,7 +167,7 @@ assign [class="Steam"] → $workspace8
 for_window [class="Blockify"] floating enable
 for_window [class="cinnamon-settings.py"] floating enable
 for_window [class="deadbeef"] floating enable
-for_window [class="thunar"] floating enable
+for_window [class="Thunar"] floating enable
 
 
 ## autostart
@@ -258,6 +258,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
+bindsym $mod+shift+u exec setxkbmap -layout us && xmodmap -e 'keycode 117=Right'
+bindsym $mod+shift+i exec setxkbmap -layout us -variant intl && xmodmap -e 'keycode 117=Right'
+
 ## touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # set tap to click
@@ -274,4 +277,4 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## background
-exec_always feh --bg-fill /home/taco/Pictures/wallpapers/Firewatch/tE9TEKI.jpg
+exec_always feh --bg-fill /home/taco/Pictures/wallpapers/80scity.jpg

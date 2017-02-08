@@ -41,6 +41,7 @@ alias dev="cd /mnt/lechuga/code/dev/"
 alias taco="cd /mnt/lechuga/code/taco/guy/"
 alias tacowolf="cd /mnt/lechuga/code/taco/wolf/"
 alias itsae="cd /mnt/lechuga/code/itsae/"
+alias caregivers="cd /mnt/lechuga/code/dev/caregivers/"
 
 # Exports to fix things with documentation
 export PATH="$PATH:$HOME/.rvm/bin"  # Add RVM to PATH for scripting
@@ -50,8 +51,6 @@ export PATH="$PATH:`yarn global bin`" # Add yarn to path for scripting
 export ANDROID_HOME=/mnt/lechuga/code/_utils/android/sdk/
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 # Load RVM into a shell session *as a function*
