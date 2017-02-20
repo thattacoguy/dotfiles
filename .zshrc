@@ -16,7 +16,7 @@ export UPDATE_ZSH_DAYS=7
 COMPLETION_WAITING_DOTS="true"
 
 # plugins
-plugins=(git)
+plugins=(git web-search)
 # get that zshource
 source $ZSH/oh-my-zsh.sh
 
