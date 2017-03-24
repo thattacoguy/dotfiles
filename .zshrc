@@ -1,10 +1,23 @@
+############################
+#           _
+#          | |
+#   _______| |__
+#  |_  / __| '_ \
+#   / /\__ \ | | |
+#  /___|___/_| |_|
+############################
+# author: Daniel Gallegos
+# license: MIT
+# year: 2017
+############################
+
 # location where zsh is installed
 export ZSH=/home/taco/.oh-my-zsh
 
 # zsh theme
 # find more themes here:
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda-mod"
+ZSH_THEME="spaceship"
 JAVA_HOME=/usr/lib/jvm/default
 
 if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
@@ -16,7 +29,7 @@ export UPDATE_ZSH_DAYS=7
 COMPLETION_WAITING_DOTS="true"
 
 # plugins
-plugins=(git web-search)
+plugins=(git web-search async)
 # get that zshource
 source $ZSH/oh-my-zsh.sh
 
