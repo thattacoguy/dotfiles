@@ -118,9 +118,9 @@ set $workspace4 4:[  work ]
 set $workspace5 5:[  comms ]
 set $workspace6 6:[  noise ]
 set $workspace7 7:[  sys ]
-set $workspace8 8:[  game ]
+set $workspace8 8:[  play ]
+set $workspace9 9:[  steam ]
 # the ones below are intentionally left empty for later use
-set $workspace9 9
 set $workspace0 10
 
 # switch to workspace
@@ -147,16 +147,16 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
 
-workspace_auto_back_and_forth no
+workspace_auto_back_and_forth yes
 
 ## force location
 # workspace1
 assign [class="Atom"] → $workspace1
 
 # workspace3 [browsing]
-assign [class="Google-chrome"] → $workspace3
-
+# assign [class="Google-chrome"] → $workspace3
 # workspace4 [work]
+# assign [class="Google-chrome"] → $workspace4
 
 # workspace5 [comms]
 assign [class="discord"] → $workspace5
@@ -167,15 +167,11 @@ for_window [class="Spotify"] move to workspace $workspace6
 assign [class="deadbeef"] → $workspace6
 assign [class="Blockify"] → $workspace6
 
-# workspace8 [games]
-assign [class="Steam"] → $workspace8
+# workspace9 [steam]
+assign [class="Steam"] → $workspace9
 
 ## force floating
-for_window [class="Blockify"] floating enable
 for_window [class="cinnamon-settings.py"] floating enable
-for_window [class="deadbeef"] floating enable
-for_window [class="Thunar"] floating enable
-
 
 ## autostart
 # double buffering with smooth transitions
@@ -284,4 +280,5 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## background
-exec_always feh --bg-fill /home/taco/Pictures/wallpapers/EarthPorn/tp2hz6m8usgy.jpg
+exec_always feh --bg-fill /home/taco/Pictures/wallpapers/636ZiMH.jpg
+exec --no-startup-id i3-msg 'workspace $workspace3; exec /usr/bin/google-chrome'
