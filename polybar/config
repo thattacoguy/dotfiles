@@ -211,7 +211,7 @@ label-separator-margin = 1
 
 menu-0-0 = Terminate WM
 menu-0-0-foreground = ${colors.color-green}
-menu-0-0-exec = i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
+menu-0-0-exec = i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'yeah' 'i3-msg exit'
 menu-0-1 = Reboot
 menu-0-1-foreground = ${colors.color-red}
 menu-0-1-exec = menu-open-1
