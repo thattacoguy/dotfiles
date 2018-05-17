@@ -1,5 +1,5 @@
 [global]
-    font = Fira Code 8
+    font = Hack Regular 8
 
     allow_markup = yes
 
@@ -115,7 +115,7 @@
 
 [frame]
     width = 1
-    color = "#b1d631"
+    color = "#fb0343"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key

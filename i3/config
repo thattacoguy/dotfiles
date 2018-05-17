@@ -23,6 +23,7 @@ set $color-gray           #303030
 set $color-light-gray     #5f5f5f
 set $color-red            #c03000
 set $color-pink           #ff3a78
+set $color-hot-pink       #fb0343
 set $color-green          #b1d631
 set $color-dark-green     #a6cd07
 set $color-yellow         #fecf35
@@ -42,6 +43,8 @@ font pango:$title-font
 floating_modifier $mod
 
 ### programs ###
+
+set $TERMINAL = termite
 
 ## bindings
 # start a terminal
@@ -155,9 +158,9 @@ assign [class="Atom"] → $workspace1
 assign [class="Subl3"] → $workspace1
 
 # workspace3 [browsing]
-# assign [class="Google-chrome"] → $workspace3
+# assign [class="google-chrome"] → $workspace3
 # workspace4 [work]
-# assign [class="Google-chrome"] → $workspace4
+# assign [class="google-chrome"] → $workspace4
 
 # workspace5 [comms]
 assign [class="discord"] → $workspace5
@@ -166,7 +169,6 @@ assign [class="discord-canary"] → $workspace5
 # workspace6 [music]
 for_window [class="Spotify"] move to workspace $workspace6
 assign [class="deadbeef"] → $workspace6
-assign [class="Blockify"] → $workspace6
 
 # workspace9 [steam]
 assign [class="Steam"] → $workspace9
@@ -182,13 +184,9 @@ bindsym $mod+d exec rofi -show run
 # start dunst
 exec_always dunst
 exec discord-canary
-exec google-chrome-stable
 exec spotify
-exec subl3
+exec atom
 exec nm-applet
-## force floating
-for_window [class="Blockify"] floating enable
-for_window [class="deadbeef"] floating enable
 
 ### core functions ###
 # reload the configuration file
@@ -196,7 +194,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to head out?' -b 'yeah' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to head out?' -b 'not yet' 'exit' -b 'yeah' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -265,14 +263,10 @@ bindsym $mod+shift+u exec setxkbmap -layout us && xmodmap -e 'keycode 117=Right'
 bindsym $mod+shift+i exec setxkbmap -layout us -variant intl && xmodmap -e 'keycode 117=Right'
 
 ## touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 # set tap to click
-exec_always xinput --set-prop --type=int --format=8  "Elan Touchpad" "libinput Tapping Enabled" 1
+exec_always xinput --set-prop --type=int --format=8  "Synaptics TM2438-005" "libinput Tapping Enabled" 1
 # set natural scrolling
-exec_always xinput --set-prop --type=int --format=8  "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
-
-# set hack for my current laptop - some keys on it don't work
-exec_always xmodmap -e 'keycode 117=Right'
+exec_always xinput --set-prop --type=int --format=8  "Synaptics TM2438-005" "libinput Natural Scrolling Enabled" 1
 
 ## media player controls
 bindsym XF86AudioPause exec playerctl play-pause
@@ -280,5 +274,4 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## background
-exec_always feh --bg-fill /home/taco/Pictures/wallpapers/636ZiMH.jpg
-exec --no-startup-id i3-msg 'workspace $workspace3; exec /usr/bin/google-chrome'
+exec_always feh --bg-fill /home/taco/Pictures/Wallpapers/700a87817fb435a255f39c698345d4ea4c4d57c4.jpg

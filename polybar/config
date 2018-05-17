@@ -21,6 +21,7 @@ color-red = #c03000
 color-pink = #ff3a78
 color-green = #b1d631
 color-dark-green = #a6cd07
+color-hot-pink = #fb0343
 color-yellow = #fecf35
 color-light-yellow = #b5c865
 color-blue = #426870
@@ -29,13 +30,15 @@ color-purple = #6d506d
 color-cyan = #4bb5c1
 color-white = #E2E2E5
 
+current = ${colors.color-green}
+
 transparent =
 
 background = ${colors.transparent}
 foreground = #E2E2E5
 
 background-focused = ${colors.transparent}
-text-focused = ${colors.color-green}
+text-focused = ${colors.current}
 
 background-unfocused = ${colors.transparent}
 text-unfocused = #E2E2E5
@@ -134,7 +137,7 @@ time = %l:%M:%S %p
 
 format-prefix = " "
 format-prefix-foregound = ${colors.foreground}
-format-underline = ${colors.color-green}
+format-underline = ${colors.current}
 format-underline-size = 5
 label = "%date% | %time%"
 
@@ -150,10 +153,10 @@ format-muted-foreground = ${colors.color-red}
 label-muted = muted
 
 bar-volume-width = 20
-bar-volume-foreground-0 = ${colors.color-green}
+bar-volume-foreground-0 = ${colors.current}
 bar-volume-gradient = false
 bar-volume-indicator = 	█
-bar-volume-indicator-foreground = ${colors.color-green}
+bar-volume-indicator-foreground = ${colors.current}
 bar-volume-indicator-font = 2
 bar-volume-fill = ■
 bar-volume-fill-font = 2
@@ -174,11 +177,11 @@ poll-interval = 1
 time-format = %H:%M:%S
 
 format-charging = <label-charging> <animation-charging>
-format-charging-foreground = ${colors.color-green}
+format-charging-foreground = ${colors.current}
 format-discharging = <label-discharging> <ramp-capacity>
 format-discharging-foreground = ${colors.color-yellow}
 format-full = <label-full> <ramp-capacity>
-format-full-foreground = ${colors.color-green}
+format-full-foreground = ${colors.current}
 
 label-charging = Charging - %percentage%% [%time%]
 
@@ -210,7 +213,7 @@ label-separator = |
 label-separator-margin = 1
 
 menu-0-0 = Terminate WM
-menu-0-0-foreground = ${colors.color-green}
+menu-0-0-foreground = ${colors.current}
 menu-0-0-exec = i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'yeah' 'i3-msg exit'
 menu-0-1 = Reboot
 menu-0-1-foreground = ${colors.color-red}

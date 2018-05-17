@@ -1,27 +1,29 @@
 #!/usr/bin/env bash
 
-directories=(i3 i3/scripts gtk-3.0 polybar termite vis)
+echo "Currently broken. Don't try to use it."
 
-config_files=(i3/scripts/lock.sh i3/config polybar/config polybar/launch.sh termite/config vis/config dunstrc gtk-3.0/gtk.css)
+# directories=(i3 i3/scripts gtk-3.0 polybar termite vis)
 
-function dirnotif {
-  echo "Directory for $1 doesn't exist, creating it."
-}
+# config_files=(i3/scripts/lock.sh i3/config polybar/config polybar/launch.sh termite/config vis/config dunstrc gtk-3.0/gtk.css)
 
-function linknotif {
-  echo "Linking $1."
-}
+# function dirnotif {
+#   echo "Directory for $1 doesn't exist, creating it."
+# }
 
-for i in ${directories[@]}; do
-  if [ ! -d ~/.config/$i/ ]; then
-    dirnotif $i
-    mkdir ~/.config/$i
-  fi
-done
+# function linknotif {
+#   echo "Linking $1."
+# }
 
-for i in ${config_files[@]}; do
-  if [ ! -f /home/$(whoami)/.config/$i ]; then
-    linknotif $i
-    ln -s $(pwd)/$i /home/$(whoami)/.config/$i
-  fi
-done
+# for i in ${directories[@]}; do
+#   if [ ! -d ~/.config/$i/ ]; then
+#     dirnotif $i
+#     mkdir ~/.config/$i
+#   fi
+# done
+
+# for i in ${config_files[@]}; do
+#   if [ ! -f /home/$(whoami)/.config/$i ]; then
+#     linknotif $i
+#     ln -s $(pwd)/$i /home/$(whoami)/.config/$i
+#   fi
+# done
