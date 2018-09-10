@@ -203,3 +203,25 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# double buffering with smooth transitions
+exec_always compton -f
+
+# keyboard media keys
+## audio controls
+# (used for pulseaudio)
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') +5%
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -5%
+# mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+## screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+
+## media player controls
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
