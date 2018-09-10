@@ -8,6 +8,47 @@
 # ===========
 # i3 config by @takouhai
 
+
+# colors
+## black
+set $color1  #151515
+set $color8  #828282
+
+## red
+set $color1  #d74c4c
+set $color9  #f086aa
+
+## green
+set $color2  #87d65e
+set $color10 #619844
+
+## yellow
+set $color3  #fcf36e
+set $color11 #f4eb6a
+
+## blue
+set $color4  #aadde3
+set $color12 #4faaf4
+
+## magenta
+set $color5  #b87ac2
+set $color13 #9575cd
+
+## cyan
+set $color6  #4bb5c1
+set $color14 #4bb5c1
+
+## white
+set $color7  #ffffff
+set $color15 #e2e2e5
+
+## window colors
+#                       border      background  text        indicator
+client.focused          $color2     $color2     $color2     $color2
+client.unfocused        $color8     $color8     $color7     $color1
+client.focused_inactive $color15    $color15    $color7     $color15
+client.urgent           $color1     $color1     $color3     $color1
+
 # set windows key as $mod key
 set $mod Mod4
 
@@ -130,12 +171,11 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later nerd' 'i3-msg exit'"
 
 # disable window titlebars
-
 for_window [class="^.*"] border pixel 1
 
 ## gaps
-gaps outer 0
 gaps inner 15
+gaps outer 0
 
 # resize window with the keyboard
 # (and also the mouse!)
