@@ -1,0 +1,165 @@
+# ==========
+#  _  _____
+# (_)|____ |
+#  _     / /
+# | |    \ \
+# | |.___/ /
+# |_|\____/
+# ===========
+# i3 config by @takouhai
+
+# set windows key as $mod key
+set $mod Mod4
+
+# set font to source code pro
+# src: https://github.com/adobe-fonts/source-code-pro
+font pango:Source Code Pro 8
+
+# use mouse to drag windows around
+floating_modifier $mod
+
+# throw open a terminal
+# note: i3-sensible-terminal uses a predefined set of terminals and uses the one
+#       that's highest on the list
+# src:  https://build.i3wm.org/docs/i3-sensible-terminal.html
+bindsym $mod+Return exec i3-sensible-terminal
+
+# delet this (window)
+bindsym $mod+Shift+q kill
+
+# bind rofi to $mod+d
+bindsym $mod+d exec --no-startup-id rofi -show run
+
+# change focus with jkl;
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+# or with ←↑↓→
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window with jkl;
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+# or with ←↑↓→
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# horizontal orientation split
+# note: this means new windows will appear to the right of the focused window
+bindsym $mod+h split h
+
+# vertical orientation split
+# note: this means new windows will appear to the bottom of the focused window
+bindsym $mod+v split v
+
+# make focused window enter fullscreen
+bindsym $mod+f fullscreen toggle
+
+# change window layout
+# stacks
+# this stacks windows like file cards
+bindsym $mod+s layout stacking
+# tabbed
+# this shifts windows to a tabbed layout (like a browser)
+bindsym $mod+w layout tabbed
+# toggle split (default)
+# windows take up new space and split screen real estate
+# (this is the default behavior of i3)
+bindsym $mod+e layout toggle split
+
+# toggle floating focused window
+bindsym $mod+Shift+space floating toggle
+# switch between floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# workspaces
+# i3 uses variables by default so to avoid repeating names everywhere
+# and i do it too because that's smart
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused window to a workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload i3
+bindsym $mod+Shift+c reload
+# restart i3
+bindsym $mod+Shift+r restart
+# exit i3 and go to desktop manager
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later nerd' 'i3-msg exit'"
+
+# disable window titlebars
+
+for_window [class="^.*"] border pixel 1
+
+## gaps
+gaps outer 0
+gaps inner 15
+
+# resize window with the keyboard
+# (and also the mouse!)
+mode "resize" {
+
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# enter resize mode
+bindsym $mod+r mode "resize"
+
+# i3bar
+bar {
+        status_command i3status
+}
