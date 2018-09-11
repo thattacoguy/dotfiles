@@ -200,13 +200,18 @@ mode "resize" {
 # enter resize mode
 bindsym $mod+r mode "resize"
 
-# i3bar
-bar {
-        status_command i3status
-}
+# lock screen with custom lock script
+bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 
-# double buffering with smooth transitions
+# startup applications
+## compton with smooth transitions
 exec_always compton -f
+## notifications
+exec dunst
+## network manager applet
+exec nm-applet
+## status bar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # keyboard media keys
 ## audio controls
