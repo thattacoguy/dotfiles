@@ -17,7 +17,7 @@ scrollback_lines = 10000
 scrollbar = off
 
 [colors]
-foreground = #87D65E
+foreground = #87d65e
 background = rgba(20, 20, 20, 0.9)
 
 # black
