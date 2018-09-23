@@ -43,7 +43,7 @@ set $color14 #4bb5c1
 set $color7  #ffffff
 set $color15 #e2e2e5
 
-## window colors
+## container colors
 #                       border      background  text        indicator
 client.focused          $color2     $color2     $color2     $color2
 client.unfocused        $color8     $color8     $color7     $color1
@@ -57,7 +57,7 @@ set $mod Mod4
 # src: https://github.com/adobe-fonts/source-code-pro
 font pango:Source Code Pro 8
 
-# use mouse to drag windows around
+# use mouse to drag containers around
 floating_modifier $mod
 
 # throw open a terminal
@@ -66,7 +66,7 @@ floating_modifier $mod
 # src:  https://build.i3wm.org/docs/i3-sensible-terminal.html
 bindsym $mod+Return exec i3-sensible-terminal
 
-# delet this (window)
+# delet this (container)
 bindsym $mod+Shift+q kill
 
 # bind rofi to $mod+d
@@ -83,7 +83,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window with jkl;
+# move focused container with jkl;
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
@@ -96,31 +96,31 @@ bindsym $mod+Shift+Right move right
 
 
 # horizontal orientation split
-# note: this means new windows will appear to the right of the focused window
+# note: this means new containers will appear to the right of the focused container
 bindsym $mod+h split h
 
 # vertical orientation split
-# note: this means new windows will appear to the bottom of the focused window
+# note: this means new containers will appear to the bottom of the focused container
 bindsym $mod+v split v
 
-# make focused window enter fullscreen
+# make focused container enter fullscreen
 bindsym $mod+f fullscreen toggle
 
-# change window layout
+# change container layout
 # stacks
-# this stacks windows like file cards
+# this stacks containers like file cards
 bindsym $mod+s layout stacking
 # tabbed
-# this shifts windows to a tabbed layout (like a browser)
+# this shifts containers to a tabbed layout (like a browser)
 bindsym $mod+w layout tabbed
 # toggle split (default)
-# windows take up new space and split screen real estate
+# containers take up new space and split screen real estate
 # (this is the default behavior of i3)
 bindsym $mod+e layout toggle split
 
-# toggle floating focused window
+# toggle floating focused container
 bindsym $mod+Shift+space floating toggle
-# switch between floating windows
+# switch between floating containers
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
@@ -152,7 +152,7 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# move focused window to a workspace
+# move focused container to a workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -164,6 +164,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# move workspace to another
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+
 # reload i3
 bindsym $mod+Shift+c reload
 # restart i3
@@ -171,14 +175,14 @@ bindsym $mod+Shift+r restart
 # exit i3 and go to desktop manager
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later nerd' 'i3-msg exit'"
 
-# disable window titlebars
+# disable container titlebars
 for_window [class="^.*"] border pixel 1
 
 ## gaps
 gaps inner 15
 gaps outer 0
 
-# resize window with the keyboard
+# resize container with the keyboard
 # (and also the mouse!)
 mode "resize" {
 
@@ -213,6 +217,7 @@ exec nm-applet
 ## status bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+
 # keyboard media keys
 ## audio controls
 # (used for pulseaudio)
@@ -222,6 +227,13 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -5%
 # mute sound
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# touchpad input configuration
+## tapping enabled
+exec_always xinput set-prop 17 314 1
+## natural scrolling
+exec_always xinput set-prop 17 296 1
+
 
 ## screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness

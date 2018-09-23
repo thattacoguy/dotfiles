@@ -66,6 +66,8 @@ background-urgent = ${colors.color1}
 text-urgent = ${colors.color3}
 
 [bar/top]
+monitor = eDP-1
+pin-workspaces = true
 width = 100%
 height = 24
 radius = 0.0
@@ -86,9 +88,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "Source Code Pro:pixelsize=8;0"
-font-1 = "Font Awesome 5 Free:pixelsize=10;1"
-font-2 = "Font Awesome 5 Free Solid:pixelsize=10;2"
-font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
+font-1 = "Wuncon Siji:weight=regular:pixelsize=8;1"
 
 ; modules
 modules-left = i3
