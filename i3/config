@@ -53,18 +53,14 @@ client.urgent           $color1     $color1     $color3     $color1
 # set windows key as $mod key
 set $mod Mod4
 
-# set font to source code pro
-# src: https://github.com/adobe-fonts/source-code-pro
-font pango:Source Code Pro 8
+# font
+font pango:Source Code Pro 12
 
 # use mouse to drag containers around
 floating_modifier $mod
 
 # throw open a terminal
-# note: i3-sensible-terminal uses a predefined set of terminals and uses the one
-#       that's highest on the list
-# src:  https://build.i3wm.org/docs/i3-sensible-terminal.html
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 
 # delet this (container)
 bindsym $mod+Shift+q kill
@@ -72,6 +68,7 @@ bindsym $mod+Shift+q kill
 # bind rofi to $mod+d
 bindsym $mod+d exec --no-startup-id rofi -show run
 
+## navigation
 # change focus with jkl;
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -173,13 +170,13 @@ bindsym $mod+Shift+c reload
 # restart i3
 bindsym $mod+Shift+r restart
 # exit i3 and go to desktop manager
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later nerd' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later' 'i3-msg exit'"
 
 # disable container titlebars
-for_window [class="^.*"] border pixel 1
+for_window [class=".*"] border pixel 0
 
 ## gaps
-gaps inner 15
+gaps inner 10
 gaps outer 0
 
 # resize container with the keyboard
