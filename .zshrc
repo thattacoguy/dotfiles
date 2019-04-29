@@ -44,3 +44,9 @@ alias zsh.reload="source ~/.zshrc"
 alias zsh.login="$(which zsh) -l"
 # upgrade oh-my-zsh
 alias zsh.upgrade="upgrade_oh_my_zsh"
+
+## git 
+# runs an automatic git garbage collector
+alias git.garbageman="git gc --auto"
+# clean dead origin branches
+alias git.prune="git remote prune origin"
