@@ -1,4 +1,4 @@
-;#########################################
+; ====================
 ;               _       _
 ;              | |     | |
 ;   _ __   ___ | |_   _| |__   __ _ _ __
@@ -7,34 +7,53 @@
 ;  | .__/ \___/|_|\__, |_.__/ \__,_|_|
 ;  | |             __/ |
 ;  |_|            |___/
-;#########################################
-; author: Daniel Gallegos
-; license: MIT
-; year: 2017
-;#########################################
+; ====================
+; author: @takouhai
+; license: mit
+; ====================
 
 [colors]
-color-black = #000000
-color-gray = #303030
-color-light-gray = #5f5f5f
-color-red = #c03000
-color-pink = #ff3a78
-color-green = #b1d631
-color-dark-green = #a6cd07
-color-hot-pink = #fb0343
-color-yellow = #fecf35
-color-light-yellow = #b5c865
-color-blue = #426870
-color-light-blue = #4a7781
-color-purple = #6d506d
-color-cyan = #4bb5c1
-color-white = #E2E2E5
 
-current = ${colors.color-green}
+; black
+color0  = #151515
+color8  = #828282
 
+; red
+color1  = #d74c4c
+color9  = #f086aa
+
+; green
+color2  = #87d65e
+color10 = #619844
+
+; yellow
+color3  = #fcf36e
+color11 = #f4eb6a
+
+; blue
+color4  = #aadde3
+color12 = #4faaf4
+
+; magenta
+color5  = #b87ac2
+color13 = #9575cd
+
+; cyan
+color6  = #4bb5c1
+color14 = #4bb5c1
+
+; white
+color7  = #ffffff
+color15 = #e2e2e5
+
+; misc
+color214
 transparent =
 
-background = ${colors.transparent}
+;; system colors
+current = ${colors.color2}
+
+background = #151515
 foreground = #E2E2E5
 
 background-focused = ${colors.transparent}
@@ -43,10 +62,12 @@ text-focused = ${colors.current}
 background-unfocused = ${colors.transparent}
 text-unfocused = #E2E2E5
 
-background-urgent = #c03000
-text-urgent = #fecf35
+background-urgent = ${colors.color1}
+text-urgent = ${colors.color3}
 
 [bar/top]
+monitor = eDP-1
+pin-workspaces = true
 width = 100%
 height = 24
 radius = 0.0
@@ -56,31 +77,23 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 tray-position = right
-tray-padding = 0
-tray-detached = false
+tray-padding = 8
 
 ; line
-line-size = 3
-line-color = #f00
-; border
+line-size = 2
 border-size = 0
-
-; padding
-padding-left = 2
-padding-right = 1
 
 ; padding
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Fira Mono:pixelsize=8;0"
-font-1 = "Font Awesome:pixelsize=8;1"
-font-2 = siji:pixelsize=10;1
+font-0 = "Source Code Pro:pixelsize=8;0"
+font-1 = "Wuncon Siji:weight=regular:pixelsize=8;1"
 
 ; modules
 modules-left = i3
 modules-center = title
-modules-right = volume battery date powermenu
+modules-right = volume battery date
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -90,7 +103,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-strip-wsnumbers = true
+strip-wsnumbers = true2
 
 label-mode-padding = 0
 label-mode-foreground = ${colors.foreground}
@@ -142,14 +155,14 @@ format-underline-size = 5
 label = "%date% | %time%"
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = ""
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.color-red}
+format-muted-foreground = ${colors.color1}
 label-muted = muted
 
 bar-volume-width = 20
@@ -166,7 +179,6 @@ bar-volume-empty-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
-
 full-at = 99
 
 battery = BAT0
@@ -179,7 +191,7 @@ time-format = %H:%M:%S
 format-charging = <label-charging> <animation-charging>
 format-charging-foreground = ${colors.current}
 format-discharging = <label-discharging> <ramp-capacity>
-format-discharging-foreground = ${colors.color-yellow}
+format-discharging-foreground = ${colors.color3}
 format-full = <label-full> <ramp-capacity>
 format-full-foreground = ${colors.current}
 
@@ -204,51 +216,11 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 500
 
-[module/powermenu]
-type = custom/menu
-
-label-open = 
-label-close = 
-label-separator = |
-label-separator-margin = 1
-
-menu-0-0 = Terminate WM
-menu-0-0-foreground = ${colors.current}
-menu-0-0-exec = i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'yeah' 'i3-msg exit'
-menu-0-1 = Reboot
-menu-0-1-foreground = ${colors.color-red}
-menu-0-1-exec = menu-open-1
-menu-0-2 = Power off
-menu-0-2-foreground = ${colors.color-red}
-menu-0-2-exec = menu-open-2
-menu-0-3 = Lock
-menu-0-3-foreground = ${colors.color-yellow}
-menu-0-3-exec = ~/.config/i3/scripts/lock.sh
-
-menu-1-0 = Cancel
-menu-1-0-foreground = ${colors.foreground}
-menu-1-0-exec = menu-open-0
-menu-1-1 = Reboot
-menu-1-1-foreground = ${colors.color-red}
-menu-1-1-exec = reboot
-
-menu-2-0 = Power off
-menu-2-0-foreground = ${colors.color-red}
-menu-2-0-exec = shutdown now
-menu-2-1 = Cancel
-menu-2-1-foreground = ${colors.foreground}
-menu-2-1-exec = menu-open-0
-
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
 
 ; vim:ft=dosini

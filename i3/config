@@ -1,251 +1,221 @@
-############################
+# ====================
 #   _ ____
 #  (_)___ \
 #   _  __) |
 #  | ||__ <
 #  | |___) |
 #  |_|____/
-############################
-# author: Daniel Gallegos
-# license: MIT
-# year: 2017
-############################
+# ====================
+# author: @takouhai
+# license: mit
+# ====================
 
-# the only good mod key, the windows key
+# colors
+## black
+set $color1  #151515
+set $color8  #828282
+
+## red
+set $color1  #d74c4c
+set $color9  #f086aa
+
+## green
+set $color2  #87d65e
+set $color10 #619844
+
+## yellow
+set $color3  #fcf36e
+set $color11 #f4eb6a
+
+## blue
+set $color4  #aadde3
+set $color12 #4faaf4
+
+## magenta
+set $color5  #b87ac2
+set $color13 #9575cd
+
+## cyan
+set $color6  #4bb5c1
+set $color14 #4bb5c1
+
+## white
+set $color7  #ffffff
+set $color15 #e2e2e5
+
+## container colors
+#                       border      background  text        indicator
+client.focused          $color2     $color2     $color2     $color2
+client.unfocused        $color8     $color8     $color7     $color1
+client.focused_inactive $color15    $color15    $color7     $color15
+client.urgent           $color1     $color1     $color3     $color1
+
+# set windows key as $mod key
 set $mod Mod4
 
-### colors ###
-# based on the digerati color scheme
-# sauce: http://hcalves.deviantart.com/art/Digerati-Vim-Colorscheme-100471798
+# font
+font pango:Source Code Pro 12
 
-set $color-black          #000000
-set $color-gray           #303030
-set $color-light-gray     #5f5f5f
-set $color-red            #c03000
-set $color-pink           #ff3a78
-set $color-hot-pink       #fb0343
-set $color-green          #b1d631
-set $color-dark-green     #a6cd07
-set $color-yellow         #fecf35
-set $color-light-yellow   #b5c865
-set $color-blue           #426870
-set $color-light-blue     #4a7781
-set $color-purple         #6d506d
-set $color-cyan           #4bb5c1
-set $color-white          #E2E2E5
-
-# set variables
-set $title-font Fira Mono 0
-
-# font used for window titles
-font pango:$title-font
-# use Mouse+$mod to drag floating windows to their wanted position
+# use mouse to drag containers around
 floating_modifier $mod
 
-### programs ###
-
-set $TERMINAL = termite
-
-## bindings
-# start a terminal
+# throw open a terminal
 bindsym $mod+Return exec termite
 
-# start authentication manager for updates
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# delet this (container)
+bindsym $mod+Shift+q kill
 
-### monitor management ###
+# bind rofi to $mod+d
+bindsym $mod+d exec --no-startup-id rofi -show run
 
-exec_always xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1
-
-### window management ###
-
-## window focus
-# change focus with keys
+## navigation
+# change focus with jkl;
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# or with ←↑↓→
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# kill focused window
-bindsym $mod+Shift+q kill
-
-## scratchpads
-# convert to scratchpad
-bindsym $mod+Shift+z move scratchpad
-# show scratchpad
-bindsym $mod+z scratchpad show
-
-## window shifting
-# move focused window
+# move focused container with jkl;
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
+# or with ←↑↓→
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-## orientation
-# split in horizontal orientation
+
+# horizontal orientation split
+# note: this means new containers will appear to the right of the focused container
 bindsym $mod+h split h
-# split in vertical orientation
+
+# vertical orientation split
+# note: this means new containers will appear to the bottom of the focused container
 bindsym $mod+v split v
 
-## fullscreen
-# enter fullscreen mode for the focused container
+# make focused container enter fullscreen
 bindsym $mod+f fullscreen toggle
 
-## layouts
-# change container layout (stacked, tabbed, toggle split)
+# change container layout
+# stacks
+# this stacks containers like file cards
 bindsym $mod+s layout stacking
+# tabbed
+# this shifts containers to a tabbed layout (like a browser)
 bindsym $mod+w layout tabbed
+# toggle split (default)
+# containers take up new space and split screen real estate
+# (this is the default behavior of i3)
 bindsym $mod+e layout toggle split
 
-## floating windows
-# toggle tiling / floating
+# toggle floating focused container
 bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
-bindsym $mod+alt focus mode_toggle
+# switch between floating containers
+bindsym $mod+space focus mode_toggle
 
-## workspaces
-# set workspace name variables
-set $workspace1 1:[  code ]
-set $workspace2 2:[  preview ]
-set $workspace3 3:[  browse ]
-set $workspace4 4:[  work ]
-set $workspace5 5:[  comms ]
-set $workspace6 6:[  noise ]
-set $workspace7 7:[  sys ]
-set $workspace8 8:[  play ]
-set $workspace9 9:[  steam ]
-# the ones below are intentionally left empty for later use
-set $workspace0 10
+# focus the parent container
+bindsym $mod+a focus parent
 
-# switch to workspace
-bindsym $mod+1 exec "i3-msg workspace $workspace1; i3-msg scratchpad show"
-bindsym $mod+2 exec "i3-msg workspace $workspace2; i3-msg scratchpad show"
-bindsym $mod+3 exec "i3-msg workspace $workspace3; i3-msg scratchpad show"
-bindsym $mod+4 exec "i3-msg workspace $workspace4; i3-msg scratchpad show"
-bindsym $mod+5 exec "i3-msg workspace $workspace5; i3-msg scratchpad show"
-bindsym $mod+6 exec "i3-msg workspace $workspace6; i3-msg scratchpad show"
-bindsym $mod+7 exec "i3-msg workspace $workspace7; i3-msg scratchpad show"
-bindsym $mod+8 exec "i3-msg workspace $workspace8; i3-msg scratchpad show"
-bindsym $mod+9 exec "i3-msg workspace $workspace9; i3-msg scratchpad show"
-bindsym $mod+0 exec "i3-msg workspace $workspace0; i3-msg scratchpad show"
+# workspaces
+# i3 uses variables by default so to avoid repeating names everywhere
+# and i do it too because that's smart
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace0
+# switch workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
-workspace_auto_back_and_forth yes
+# move focused container to a workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
-## force location
-# workspace1
-assign [class="Atom"] → $workspace1
-assign [class="Subl3"] → $workspace1
+# move workspace to another
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
 
-# workspace3 [browsing]
-# assign [class="google-chrome"] → $workspace3
-# workspace4 [work]
-# assign [class="google-chrome"] → $workspace4
-
-# workspace5 [comms]
-assign [class="discord"] → $workspace5
-assign [class="discord-canary"] → $workspace5
-
-# workspace6 [music]
-for_window [class="Spotify"] move to workspace $workspace6
-assign [class="deadbeef"] → $workspace6
-
-# workspace9 [steam]
-assign [class="Steam"] → $workspace9
-
-## force floating
-for_window [class="cinnamon-settings.py"] floating enable
-
-## autostart
-# double buffering with smooth transitions
-exec_always compton -f
-# start rofi
-bindsym $mod+d exec rofi -show run
-# start dunst
-exec_always dunst
-exec discord-canary
-exec spotify
-exec atom
-exec nm-applet
-
-### core functions ###
-# reload the configuration file
+# reload i3
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart i3
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to head out?' -b 'not yet' 'exit' -b 'yeah' 'i3-msg exit'"
+# exit i3 and go to desktop manager
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# disable container titlebars
+for_window [class=".*"] border pixel 0
+
+## gaps
+gaps inner 10
+gaps outer 0
+
+# resize container with the keyboard
+# (and also the mouse!)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
+        # exit resize mode
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
 
+# enter resize mode
 bindsym $mod+r mode "resize"
 
-### styling ###
+# lock screen with custom lock script
+bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 
-# window colors
-#                       border                background         text                 indicator
-client.focused          $color-green          $color-green       $color-green         $color-green
-client.unfocused        $color-gray           $color-gray        $color-white         $color-red
-client.focused_inactive $color-light-gray     $color-light-gray  $color-white         $color-light-gray
-client.urgent           $color-red            $color-red         $color-yellow        $color-red
-
-# spacing
-gaps inner 10
-gaps outer 0
-
-# border
-new_window pixel 1
-
+# startup applications
+## compton with smooth transitions
+exec_always compton -f
+## notifications
+exec dunst
+## network manager applet
+exec nm-applet
 ## status bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# lock screen with custom lock script
-bindsym $mod+shift+x exec ~/.config/i3/scripts/lock.sh
 
-### keybinding controls ###
-
+# keyboard media keys
 ## audio controls
 # (used for pulseaudio)
 # increase sound volume
@@ -255,18 +225,16 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl 
 # mute sound
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
+# touchpad input configuration
+## tapping enabled
+exec_always xinput set-prop 17 314 1
+## natural scrolling
+exec_always xinput set-prop 17 296 1
+
+
 ## screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-bindsym $mod+shift+u exec setxkbmap -layout us && xmodmap -e 'keycode 117=Right'
-bindsym $mod+shift+i exec setxkbmap -layout us -variant intl && xmodmap -e 'keycode 117=Right'
-
-## touchpad controls
-# set tap to click
-exec_always xinput --set-prop --type=int --format=8  "Synaptics TM2438-005" "libinput Tapping Enabled" 1
-# set natural scrolling
-exec_always xinput --set-prop --type=int --format=8  "Synaptics TM2438-005" "libinput Natural Scrolling Enabled" 1
+bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
 
 ## media player controls
 bindsym XF86AudioPause exec playerctl play-pause
@@ -274,4 +242,4 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## background
-exec_always feh --bg-fill /home/taco/Pictures/Wallpapers/700a87817fb435a255f39c698345d4ea4c4d57c4.jpg
+exec_always feh --bg-fill /home/taco/pictures/wallpapers/current
