@@ -13,7 +13,6 @@
 ## oh-my-zsh
 # source oh-my-zsh script into zsh
 
-
 # zsh settings
 export UPDATE_ZSH_DAYS=7
 COMPLETION_WAITING_DOTS="true"
@@ -35,7 +34,7 @@ export VISUAL="nano"
 alias sys.update="yay -Syu"
 
 # configuration shortcuts
-alias sys.config="subl3 ~/code/dotiles"
+alias sys.config="subl3 ~/code/dofiles"
 
 ## zsh
 # zsh reload configuration

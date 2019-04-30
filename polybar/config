@@ -66,13 +66,12 @@ background-urgent = ${colors.color1}
 text-urgent = ${colors.color3}
 
 [bar/top]
-monitor = eDP-1
 pin-workspaces = true
 width = 100%
-height = 24
+height = 30
 radius = 0.0
 fixed-center = true
-bottom = false
+top = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -87,8 +86,14 @@ border-size = 0
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Source Code Pro:pixelsize=8;0"
-font-1 = "Wuncon Siji:weight=regular:pixelsize=8;1"
+;; todo: for some reason these fonts won't load correctly on my machine
+;;       probably something to do with font-config?
+
+font-0 = "Source Code Pro:size=10:weight=Medium;0"
+font-1 = "SF Pro Display:size=10:weight=Medium;0"
+font-2 = "SF Pro Display:size=10:weight=Semibold;0"
+font-3 = "Material Icons:size=12;0"
+font-4 = "FontAwesome:size=12;0"
 
 ; modules
 modules-left = i3
@@ -98,12 +103,14 @@ modules-right = volume battery date
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+;;; left
+
 [module/i3]
 type = internal/i3
+label-active-font = 0
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-strip-wsnumbers = true2
 
 label-mode-padding = 0
 label-mode-foreground = ${colors.foreground}
@@ -131,27 +138,26 @@ label-visible-background = ${colors.background-urgent}
 label-visible-foreground = ${colors.text-urgent}
 label-visible-underline = ${colors.text-urgent}
 
-;;; center align
+;;; center
 
 [module/title]
 type = internal/xwindow
 label = %title%
-label-maxlen = 50
+label-maxlen = 100
+label-active-font = 2
 
-;;; right-aligned
+;;; right
 
 [module/date]
 type = internal/date
 interval = 1
 
-date = "%A, %d %b %Y"
+date = "%d %b %Y"
 
-time = %l:%M:%S %p
+time = "%l:%M:%S %p"
 
 format-prefix = " "
 format-prefix-foregound = ${colors.foreground}
-format-underline = ${colors.current}
-format-underline-size = 5
 label = "%date% | %time%"
 
 [module/volume]
@@ -165,41 +171,41 @@ format-muted-prefix = " "
 format-muted-foreground = ${colors.color1}
 label-muted = muted
 
-bar-volume-width = 20
+bar-volume-width = 6
 bar-volume-foreground-0 = ${colors.current}
 bar-volume-gradient = false
-bar-volume-indicator = 	█
+bar-volume-indicator =  █
 bar-volume-indicator-foreground = ${colors.current}
 bar-volume-indicator-font = 2
-bar-volume-fill = ■
+bar-volume-fill = █
 bar-volume-fill-font = 2
-bar-volume-empty = ■
+bar-volume-empty = █
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
-full-at = 99
+full-at = 100
 
 battery = BAT0
 adapter = AC0
 
-poll-interval = 1
+poll-interval = 10
 
-time-format = %H:%M:%S
+time-format = %H:%M
 
-format-charging = <label-charging> <animation-charging>
+format-charging = <animation-charging> <label-charging>
 format-charging-foreground = ${colors.current}
-format-discharging = <label-discharging> <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging> 
 format-discharging-foreground = ${colors.color3}
-format-full = <label-full> <ramp-capacity>
+format-full = <ramp-capacity> <label-full> 
 format-full-foreground = ${colors.current}
 
-label-charging = Charging - %percentage%% [%time%]
+label-charging = %percentage%% [%time%]
 
-label-discharging = Discharging - %percentage%% [%time%]
+label-discharging = %percentage%% [%time%]
 
-label-full = Fully charged - %percentage%%
+label-full = %percentage%%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 

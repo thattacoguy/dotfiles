@@ -4,22 +4,22 @@
 
 # usage: update [folder] [file] [config]
 function update () {
-  printf "trying to create directory for '~/$3'"
+  printf "trying to create directory for '$3'"
   if mkdir -p $1 ; then
     printf "\n+ created/updated directory '$1', linking file from directory\n"
+    printf "> enter 'y' to continue creating symbolic links, type 'n' to not:\n"
+    ln -fi $(pwd)/$1/$2 $3
+    printf "\n"
   else
-    printf "\n! couldn't create directory '$1', linking file from directory anyway\n~ don't worry, though, it'll prompt you to overwrite anything\n\n"
+    printf "\n! couldn't create directory '$1', check your file configuration"
   fi
-  printf "> enter 'y' to continue creating symbolic links, type 'n' to not:\n"
-  ln -sfi $1$2 $3
-  printf "\n"
 }
 
 ## terminal
 # todo: install programs automatically
 
-update termite termite/config ~/.config/termite/config
-update ~/ .zshrc ~/.zshrc
+update termite config ~/.config/termite/config
+update . .zshrc ~/.zshrc
 
 ## desktop environment
 # window manager
