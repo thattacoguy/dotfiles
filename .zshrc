@@ -12,16 +12,17 @@
 
 ## oh-my-zsh
 # source oh-my-zsh script into zsh
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+
 
 # zsh settings
 export UPDATE_ZSH_DAYS=7
-ZSH_THEME="spaceship"
 COMPLETION_WAITING_DOTS="true"
-
+ZSH_THEME="spaceship"
+export ZSH=$HOME/.oh-my-zsh
 # plugins
 plugins=(git web-search)
+#load zsh
+source $ZSH/oh-my-zsh.sh
 
 # terminal settings
 export TERM=xterm-256color
@@ -31,7 +32,7 @@ export VISUAL="nano"
 ### aliases
 ## sys
 # command aliases for arch
-alias sys.update="yay -Sya"
+alias sys.update="yay -Syu"
 
 # configuration shortcuts
 alias sys.config="subl3 ~/code/dotiles"

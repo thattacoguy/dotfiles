@@ -1,6 +1,8 @@
 # dotfiles 
 > taco's super neat linux configuration stuff
 
+<!-- todo: add shields.io -->
+
 `(\( ' v ' )/)`
 
 hey what's up
