@@ -10,23 +10,23 @@
 # license: mit
 # ====================
 
-# terminal settings
+## oh-my-zsh
+# source oh-my-zsh script into zsh
+export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
+# zsh settings
+export UPDATE_ZSH_DAYS=7
+ZSH_THEME="spaceship"
+COMPLETION_WAITING_DOTS="true"
+
+# plugins
+plugins=(git web-search)
+
+# terminal settings
 export TERM=xterm-256color
 export TERMINAL=termite
 export VISUAL="nano"
-export ZSH=/home/taco/.oh-my-zsh
-
-
-## oh-my-zsh
-# source oh-my-zsh script into zsh
-source $ZSH/oh-my-zsh.sh
-# zsh settings
-export UPDATE_ZSH_DAYS=7
-export ZSH_THEME="spaceship"
-export COMPLETION_WAITING_DOTS="true"
-# plugins
-plugins=(git web-search)
 
 ### aliases
 ## sys
@@ -34,7 +34,7 @@ plugins=(git web-search)
 alias sys.update="yay -Sya"
 
 # configuration shortcuts
-alias sys.config="subl3 ~/.dotfiles"
+alias sys.config="subl3 ~/code/dotiles"
 
 ## zsh
 # zsh reload configuration
@@ -50,3 +50,7 @@ alias zsh.upgrade="upgrade_oh_my_zsh"
 alias git.garbageman="git gc --auto"
 # clean dead origin branches
 alias git.prune="git remote prune origin"
+
+## shortcuts
+alias open.dotfiles="cd ~/code/dotfiles"
+
