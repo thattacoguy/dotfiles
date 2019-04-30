@@ -2,45 +2,41 @@
 
 ## taco's laptop setup script (alpha)
 
+# usage: update [source] [config]
+function update () {
+  if mkdir -p $1 ; then
+    echo "\n + created directory $1, linking file from directory\n"
+    ln -sfi $1 $2
+  else
+    echo "! couldn't create directory \"$1\", linking file from directory anyway\n"
+    echo "~ don't worry, though, it'll ask you to overwrite anything\n\n"
+    ln -sfi $1 $2
+    echo "\n"
+  fi
+}
+
 ## terminal
 # todo: install oh my zsh automatically
 
-mkdir -p ~/.config/termite
-
-ln -sfi termite/config ~/.config/termite/config
-ln -sfi .zshrc ~/.zshrc
-
+update termite/config ~/.config/termite/config
+update .zshrc ~/.zshrc
 
 ## desktop environment
 # window manager
-
-mkdir -p ~/.config/i3
-
-ln -sfi i3/config ~/.config/i3/config
-ln -sfi i3/lock.sh ~/.config/i3/lock.sh
+update i3/config ~/.config/i3/config
+update i3/lock.sh ~/.config/i3/lock.sh
 
 # notifications
-
-mkdir -p ~/.config/dunst
-
-ln -sfi dunstrc ~/.config/dunst/dunstrc
+update dunst/dunstrc ~/.config/dunst/dunstrc
 
 # navigation bar
-
-mkdir -p ~/.config/polybar
-
-ln -sfi polybar/config ~/.config/polybar/config
-ln -sfi polybar/launch.sh ~/.config/polybar/launch.sh
+update polybar/config ~/.config/polybar/config
+update polybar/launch.sh ~/.config/polybar/launch.sh
 
 ## gtk3
 
-mkdir -p ~/.config/gtk-3.0
-
-ln -sfi gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
-ln -sfi gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+update gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
+update gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 
 # font configuration
-mkdir -p ~/.config/fontconfig
-
-ln -sfi fontconfig/config ~/.config/fontconfig/fonts.conf
-
+update fontconfig/config ~/.config/fontconfig/fonts.conf
