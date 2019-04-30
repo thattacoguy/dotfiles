@@ -1,5 +1,5 @@
 # dotfiles 
-> taco's super neat linux configuration stuff
+> taco's super cool linux configuration 😎😎😎
 
 <!-- todo: add shields.io -->
 

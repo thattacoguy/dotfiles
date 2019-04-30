@@ -10,45 +10,45 @@
 # license: mit
 # ====================
 
-# colors
-## black
-set $color1  #151515
-set $color8  #828282
+## colors
+# black
+set $color0  #151515
+set $color8  #363636
 
-## red
+# red
 set $color1  #d74c4c
 set $color9  #f086aa
 
-## green
+# green
 set $color2  #87d65e
 set $color10 #619844
 
-## yellow
+# yellow
 set $color3  #fcf36e
 set $color11 #f4eb6a
 
-## blue
+# blue
 set $color4  #aadde3
 set $color12 #4faaf4
 
-## magenta
+# magenta
 set $color5  #b87ac2
 set $color13 #9575cd
 
-## cyan
+# cyan
 set $color6  #4bb5c1
 set $color14 #4bb5c1
 
-## white
+# white
 set $color7  #ffffff
 set $color15 #e2e2e5
 
 ## container colors
-#                       border      background  text        indicator
-client.focused          $color2     $color2     $color2     $color2
-client.unfocused        $color8     $color8     $color7     $color1
-client.focused_inactive $color15    $color15    $color7     $color15
-client.urgent           $color1     $color1     $color3     $color1
+#                         border    background  text      indicator
+client.focused            $color8   $color2     $color2   $color2
+client.unfocused          $color8   $color8     $color7   $color8
+client.focused_inactive   $color8   $color8     $color8   $color8
+client.urgent             $color8   $color8     $color3   $color8
 
 # set windows key as $mod key
 set $mod Mod4
@@ -122,47 +122,36 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# workspaces
-# i3 uses variables by default so to avoid repeating names everywhere
-# and i do it too because that's smart
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
+## workspaces
 # switch workspaces
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to a workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # move workspace to another
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Left move workspace to output left
+
+set $strip_workspace_numbers yes
 
 # reload i3
 bindsym $mod+Shift+c reload
@@ -172,7 +161,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later' 'i3-msg exit'"
 
 # disable container titlebars
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 1
 
 ## gaps
 gaps inner 10
@@ -216,17 +205,22 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # keyboard media keys
 ## audio controls
 # (used for pulseaudio)
-# increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') +5%
-#decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -5%
-# mute sound
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-# touchpad input configuration
-## tapping enabled
+# uses ponymix:
+# https://github.com/falconindy/ponymix
+# hasn't failed me yet!
+
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 5
+# toggle mute
+bindsym XF86AudioMute exec --no-startup-id ponymix toggle
+
+## touchpad input configuration
+# tapping enabled
 exec_always xinput set-prop 17 314 1
-## natural scrolling
+# natural scrolling
 exec_always xinput set-prop 17 296 1
 
 

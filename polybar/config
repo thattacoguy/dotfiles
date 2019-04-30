@@ -13,220 +13,228 @@
 ; ====================
 
 [colors]
+  ; black
+  color0  = #151515
+  color8  = #363636
 
-; black
-color0  = #151515
-color8  = #828282
+  ; red
+  color1  = #d74c4c
+  color9  = #f086aa
 
-; red
-color1  = #d74c4c
-color9  = #f086aa
+  ; green
+  color2  = #87d65e
+  color10 = #619844
 
-; green
-color2  = #87d65e
-color10 = #619844
+  ; yellow
+  color3  = #fcf36e
+  color11 = #f4eb6a
 
-; yellow
-color3  = #fcf36e
-color11 = #f4eb6a
+  ; blue
+  color4  = #aadde3
+  color12 = #4faaf4
 
-; blue
-color4  = #aadde3
-color12 = #4faaf4
+  ; magenta
+  color5  = #b87ac2
+  color13 = #9575cd
 
-; magenta
-color5  = #b87ac2
-color13 = #9575cd
+  ; cyan
+  color6  = #4bb5c1
+  color14 = #4bb5c1
 
-; cyan
-color6  = #4bb5c1
-color14 = #4bb5c1
+  ; white
+  color7  = #ffffff
+  color15 = #e2e2e5
 
-; white
-color7  = #ffffff
-color15 = #e2e2e5
+  ; misc
+  transparent =
 
-; misc
-color214
-transparent =
+  ;; system colors
+  background = ${colors.color0}
+  background-focused = ${colors.transparent}
+  background-unfocused = ${colors.transparent}
 
-;; system colors
-current = ${colors.color2}
+  foreground = #E2E2E5
 
-background = #151515
-foreground = #E2E2E5
+  text-focused = ${colors.color2}
+  text-unfocused = #E2E2E5
 
-background-focused = ${colors.transparent}
-text-focused = ${colors.current}
+  background-urgent = ${colors.color1}
+  text-urgent = ${colors.color3}
 
-background-unfocused = ${colors.transparent}
-text-unfocused = #E2E2E5
-
-background-urgent = ${colors.color1}
-text-urgent = ${colors.color3}
-
+;; top navigation bar
 [bar/top]
-pin-workspaces = true
-width = 100%
-height = 30
-radius = 0.0
-fixed-center = true
-top = true
-background = ${colors.background}
-foreground = ${colors.foreground}
+  pin-workspaces = true
+  width = 100%
+  height = 30
+  radius = 0.0
+  fixed-center = true
+  top = true
+  background = ${colors.background}
+  foreground = ${colors.foreground}
 
-tray-position = right
-tray-padding = 8
+  tray-position = right
+  tray-padding = 8
 
-; line
-line-size = 2
-border-size = 0
+  ; line
+  line-size = 2
+  border-size = 0
 
-; padding
-module-margin-left = 1
-module-margin-right = 2
+  ; padding
+  module-margin-left = 1
+  module-margin-right = 2
 
-;; todo: for some reason these fonts won't load correctly on my machine
-;;       probably something to do with font-config
+  ; todo: for some reason these fonts won't load correctly on my machine
+  ;       probably something to do with font-config
 
-font-0 = "Source Code Pro:size=10:weight=Medium;0"
-font-1 = "SF Pro Display:size=10:weight=Medium;0"
-font-2 = "SF Pro Display:size=10:weight=Semibold;0"
-font-3 = "Material Icons:size=12;0"
-font-4 = "FontAwesome:size=12;0"
+  font-0 = "SF Pro Display:size=10:weight=Medium;0"
+  font-1 = "SF Pro Display:size=10:weight=Semibold;-2"
+  font-2 = "Source Code Pro:size=10:weight=Medium:antialias=false;0"
+  font-3 = "Noto Color Emoji:scale=10:weight=Regular;0"
+  font-4 = "Material Icons:size=15:weight=Regular;-2"
 
-; modules
-modules-left = i3
-modules-center = title
-modules-right = volume battery date
+  ; modules
+  modules-left = i3
+  modules-center = title
+  modules-right = volume battery date
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+  scroll-up = i3wm-wsnext
+  scroll-down = i3wm-wsprev
 
-;;; left
-
+;; left
 [module/i3]
-type = internal/i3
-label-active-font = 0
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
+  type = internal/i3
+  format = <label-state> <label-mode>
+  strip-wsnumbers = false
+  index-sort = true
+  wrapping-scroll = false
+  label-active-font = 3
 
-label-mode-padding = 0
-label-mode-foreground = ${colors.foreground}
-label-mode-background = ${colors.background}
+  ws-icon-0 = 1;🎨
+  ws-icon-1 = 2;🌎
+  ws-icon-2 = 3;💜
+  ws-icon-3 = 4;📀
+  ws-icon-4 = 5;💚
+  ws-icon-5 = 6;💚
+  ws-icon-6 = 7;💚
+  ws-icon-7 = 8;💚
+  ws-icon-8 = 9;💚
+  ws-icon-9 = 10;🛠
 
-label-focused = %name%
-label-focused-background = ${colors.background-focused}
-label-focused-foreground = ${colors.text-focused}
-label-focused-underline = ${colors.text-focused}
-label-focused-padding = 1
+  label-mode-padding = 0
+  label-mode-foreground = ${colors.foreground}
+  label-mode-background = ${colors.background}
 
-label-unfocused = %name%
-label-unfocused-background = ${colors.background}
-label-unfocused-underline = ${colors.foreground}
-label-unfocused-padding = 1
+  label-focused = %icon%
+  label-focused-background = ${colors.background-focused}
+  label-focused-foreground = ${colors.text-focused}
+  label-focused-underline = ${colors.text-focused}
+  label-focused-padding = 1
 
-label-urgent = %name%
-label-urgent-background = ${colors.background-urgent}
-label-urgent-foreground = ${colors.text-urgent}
-label-urgent-underline = ${colors.text-urgent}
-label-urgent-padding = 1
+  label-unfocused = %icon%
+  label-unfocused-background = ${colors.background}
+  label-unfocused-underline = ${colors.foreground}
+  label-unfocused-padding = 1
 
-label-visible = %name%
-label-visible-background = ${colors.background-urgent}
-label-visible-foreground = ${colors.text-urgent}
-label-visible-underline = ${colors.text-urgent}
+  label-urgent = %icon%
+  label-urgent-background = ${colors.background-urgent}
+  label-urgent-foreground = ${colors.text-urgent}
+  label-urgent-underline = ${colors.text-urgent}
+  label-urgent-padding = 1
 
-;;; center
+  label-visible = %icon%
+  label-visible-background = ${colors.background-urgent}
+  label-visible-foreground = ${colors.text-urgent}
+  label-visible-underline = ${colors.text-urgent}
+
+;; center
 
 [module/title]
-type = internal/xwindow
-label = %title%
-label-maxlen = 100
-label-active-font = 2
+  type = internal/xwindow
+  label = %title%
+  label-maxlen = 100
+  label-active-font = 1
 
-;;; right
+;; right
 
 [module/date]
-type = internal/date
-interval = 1
+  type = internal/date
+  interval = 1
 
-date = "%d %b %Y"
+  date = "%d %b %Y"
 
-time = "%l:%M:%S %p"
+  time = "%l:%M:%S %p"
 
-format-prefix = " "
-format-prefix-foregound = ${colors.foreground}
-label = "%date% | %time%"
+  format-prefix = " "
+  format-prefix-foregound = ${colors.foreground}
+  label = "%date% | %time%"
 
 [module/volume]
-type = internal/alsa
+  type = internal/alsa
 
-format-volume = <label-volume> <bar-volume>
-label-volume = ""
-label-volume-foreground = ${root.foreground}
+  format-volume = <label-volume> <bar-volume>
+  label-volume = ""
+  label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.color1}
-label-muted = muted
+  format-muted-prefix = " "
+  format-muted-foreground = ${colors.color1}
+  label-muted = muted
 
-bar-volume-width = 6
-bar-volume-foreground-0 = ${colors.current}
-bar-volume-gradient = false
-bar-volume-indicator =  █
-bar-volume-indicator-foreground = ${colors.current}
-bar-volume-indicator-font = 2
-bar-volume-fill = █
-bar-volume-fill-font = 2
-bar-volume-empty = █
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground}
+  bar-volume-width = 10
+  bar-volume-foreground-0 = ${colors.color2}
+  bar-volume-gradient = false
+  bar-volume-indicator =  █
+  bar-volume-indicator-foreground = ${colors.color2}
+  bar-volume-indicator-font = 2
+  bar-volume-fill = █
+  bar-volume-fill-font = 2
+  bar-volume-empty = █
+  bar-volume-empty-font = 2
+  bar-volume-empty-foreground = ${colors.foreground}
 
 [module/battery]
-type = internal/battery
-full-at = 100
+  type = internal/battery
+  full-at = 100
 
-battery = BAT0
-adapter = AC0
+  battery = BAT0
+  adapter = AC0
 
-poll-interval = 10
+  poll-interval = 10
 
-time-format = %H:%M
+  time-format = %H:%M
 
-format-charging = <animation-charging> <label-charging>
-format-charging-foreground = ${colors.current}
-format-discharging = <ramp-capacity> <label-discharging> 
-format-discharging-foreground = ${colors.color3}
-format-full = <ramp-capacity> <label-full> 
-format-full-foreground = ${colors.current}
+  format-charging = <animation-charging> <label-charging>
+  format-charging-foreground = ${colors.color2}
+  format-discharging = <ramp-capacity> <label-discharging> 
+  format-discharging-foreground = ${colors.color3}
+  format-full = <ramp-capacity> <label-full> 
+  format-full-foreground = ${colors.color2}
 
-label-charging = %percentage%% [%time%]
+  label-charging = %percentage%% [%time%]
 
-label-discharging = %percentage%% [%time%]
+  label-discharging = %percentage%% [%time%]
 
-label-full = %percentage%%
+  label-full = %percentage%%
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+  ramp-capacity-0 = 
+  ramp-capacity-1 = 
+  ramp-capacity-2 = 
+  ramp-capacity-3 = 
+  ramp-capacity-4 = 
 
-bar-capacity-width = 10
+  bar-capacity-width = 10
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 500
+  animation-charging-0 = 
+  animation-charging-1 = 
+  animation-charging-2 = 
+  animation-charging-3 = 
+  animation-charging-4 = 
+  animation-charging-framerate = 500
 
 [settings]
-screenchange-reload = true
+  screenchange-reload = true
 
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+  margin-top = 0
+  margin-bottom = 0
 
 ; vim:ft=dosini

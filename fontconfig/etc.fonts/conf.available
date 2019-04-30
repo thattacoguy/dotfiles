@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<!-- /etc/fonts/conf.avail/51-noto-color-emoji.conf -->
+<!-- sourced from https://gist.github.com/Narga/2d899dcdc258cf0300ebefb3aa71b3a4#file-51-noto-color-emoji-conf-xml -->
+<fontconfig>
+    <selectfont>
+        <acceptfont>
+            <pattern>
+                <patelt name="family"><string>Noto Color Emoji</string></patelt>
+            </pattern>
+        </acceptfont>
+    </selectfont>
+
+    <match target="font">
+        <test name="family">
+            <string>Noto Color Emoji</string>
+        </test>
+        <edit name="scalable" mode="assign"><bool>true</bool></edit>
+        <edit name="embeddedbitmap" mode="assign"><bool>true</bool></edit>
+        <edit name="hinting" mode="assign"><bool>true</bool></edit>
+        <edit name="hintstyle" mode="assign"><const>hintfull</const></edit>
+    </match>
+
+    <!-- Experimental -->
+    <match target="pattern">
+        <test name="family" qual="first" compare="contains">
+            <string>emoji</string>
+        </test>
+        <edit mode="assign" name="color">
+            <bool>true</bool>
+        </edit>
+        <edit mode="assign" name="family">
+            <string>Noto Color Emoji</string>
+        </edit>
+    </match>
+
+    <match target="pattern">
+        <test name="prgname" compare="not_eq">
+            <string>java</string>
+        </test>
+        <edit name="family" mode="prepend">
+            <string>Noto Color Emoji</string>
+        </edit>
+    </match>
+</fontconfig>
+
