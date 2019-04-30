@@ -87,7 +87,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 ;; todo: for some reason these fonts won't load correctly on my machine
-;;       probably something to do with font-config?
+;;       probably something to do with font-config
 
 font-0 = "Source Code Pro:size=10:weight=Medium;0"
 font-1 = "SF Pro Display:size=10:weight=Medium;0"
