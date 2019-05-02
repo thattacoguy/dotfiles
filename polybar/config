@@ -48,24 +48,23 @@
   ; misc
   transparent =
 
-  ;; system colors
-  background = ${colors.color0}
-  background-focused = ${colors.transparent}
-  background-unfocused = ${colors.transparent}
+  ; system colors
+  foreground = ${colors.color7}
 
-  foreground = #E2E2E5
+  background = ${colors.color0}
+  background-focused = ${colors.color8}
 
   text-focused = ${colors.color2}
-  text-unfocused = #E2E2E5
+  text-unfocused = 
 
-  background-urgent = ${colors.color1}
   text-urgent = ${colors.color3}
+  background-urgent = ${colors.color1}
 
 ;; top navigation bar
 [bar/top]
   pin-workspaces = true
   width = 100%
-  height = 30
+  height = 40
   radius = 0.0
   fixed-center = true
   top = true
@@ -73,7 +72,7 @@
   foreground = ${colors.foreground}
 
   tray-position = right
-  tray-padding = 8
+  tray-padding = 5
 
   ; line
   line-size = 2
@@ -81,21 +80,17 @@
 
   ; padding
   module-margin-left = 1
-  module-margin-right = 2
+  module-margin-right = 1
 
-  ; todo: for some reason these fonts won't load correctly on my machine
-  ;       probably something to do with font-config
-
-  font-0 = "SF Pro Display:size=10:weight=Medium;0"
-  font-1 = "SF Pro Display:size=10:weight=Semibold;-2"
-  font-2 = "Source Code Pro:size=10:weight=Medium:antialias=false;0"
-  font-3 = "Noto Color Emoji:scale=10:weight=Regular;0"
-  font-4 = "Material Icons:size=15:weight=Regular;-2"
+  font-0 = "SF Pro Display:size=10:weight=regular;0"
+  font-1 = "SF Pro Display:size=10:weight=semibold;0"
+  font-2 = "Ionicons:size=15:weight=regular;0"
 
   ; modules
   modules-left = i3
   modules-center = title
   modules-right = volume battery date
+
 
   scroll-up = i3wm-wsnext
   scroll-down = i3wm-wsprev
@@ -107,18 +102,17 @@
   strip-wsnumbers = false
   index-sort = true
   wrapping-scroll = false
-  label-active-font = 3
 
-  ws-icon-0 = 1;🎨
-  ws-icon-1 = 2;🌎
-  ws-icon-2 = 3;💜
-  ws-icon-3 = 4;📀
-  ws-icon-4 = 5;💚
-  ws-icon-5 = 6;💚
-  ws-icon-6 = 7;💚
-  ws-icon-7 = 8;💚
-  ws-icon-8 = 9;💚
-  ws-icon-9 = 10;🛠
+  ws-icon-0 = 1;
+  ws-icon-1 = 2;
+  ws-icon-2 = 3;
+  ws-icon-3 = 4;
+  ws-icon-4 = 5;
+  ws-icon-5 = 6;
+  ws-icon-6 = 7;
+  ws-icon-7 = 8;
+  ws-icon-8 = 9;
+  ws-icon-9 = 10;
 
   label-mode-padding = 0
   label-mode-foreground = ${colors.foreground}
@@ -128,23 +122,25 @@
   label-focused-background = ${colors.background-focused}
   label-focused-foreground = ${colors.text-focused}
   label-focused-underline = ${colors.text-focused}
-  label-focused-padding = 1
+  label-focused-padding = 5
 
   label-unfocused = %icon%
   label-unfocused-background = ${colors.background}
-  label-unfocused-underline = ${colors.foreground}
-  label-unfocused-padding = 1
+  label-unfocused-foreground = ${colors.background-focused}
+  label-unfocused-underline = ${colors.background-focused}
+  label-unfocused-padding = 5
 
   label-urgent = %icon%
   label-urgent-background = ${colors.background-urgent}
   label-urgent-foreground = ${colors.text-urgent}
   label-urgent-underline = ${colors.text-urgent}
-  label-urgent-padding = 1
+  label-urgent-padding = 5
 
   label-visible = %icon%
-  label-visible-background = ${colors.background-urgent}
-  label-visible-foreground = ${colors.text-urgent}
-  label-visible-underline = ${colors.text-urgent}
+  label-visible-background = ${colors.background}
+  label-visible-foreground = ${colors.background-focused}
+  label-visible-underline = ${colors.background-focused}
+  label-visible-padding = 5
 
 ;; center
 
@@ -152,7 +148,6 @@
   type = internal/xwindow
   label = %title%
   label-maxlen = 100
-  label-active-font = 1
 
 ;; right
 
@@ -164,36 +159,46 @@
 
   time = "%l:%M:%S %p"
 
-  format-prefix = " "
+  format-prefix = "  "
   format-prefix-foregound = ${colors.foreground}
   label = "%date% | %time%"
 
 [module/volume]
   type = internal/alsa
 
+  master-soundcard = default
+  speaker-soundcard = default
+  headphone-soundcard = default
+
+  ramp-volume-0 = 
+  ramp-volume-1 = 
+  ramp-volume-2 = 
+
   format-volume = <label-volume> <bar-volume>
-  label-volume = ""
+  label-volume = ""
   label-volume-foreground = ${root.foreground}
 
-  format-muted-prefix = " "
+  format-muted-prefix = " "
   format-muted-foreground = ${colors.color1}
   label-muted = muted
 
   bar-volume-width = 10
   bar-volume-foreground-0 = ${colors.color2}
   bar-volume-gradient = false
-  bar-volume-indicator =  █
-  bar-volume-indicator-foreground = ${colors.color2}
-  bar-volume-indicator-font = 2
-  bar-volume-fill = █
-  bar-volume-fill-font = 2
-  bar-volume-empty = █
-  bar-volume-empty-font = 2
-  bar-volume-empty-foreground = ${colors.foreground}
+  bar-volume-indicator =  ■
+  bar-volume-indicator-foreground = ${colors.color10}
+  bar-volume-fill = ■
+  bar-volume-fill-foreground = ${colors.background-focused}
+  bar-volume-empty = ■
+  bar-volume-empty-foreground = ${colors.background-focused}
+
+  label-volume-padding = 2
+  label-muted-padding = 2
+  format-bar-padding = 2
 
 [module/battery]
   type = internal/battery
-  full-at = 100
+  full-at = 99
 
   battery = BAT0
   adapter = AC0
@@ -207,27 +212,24 @@
   format-discharging = <ramp-capacity> <label-discharging> 
   format-discharging-foreground = ${colors.color3}
   format-full = <ramp-capacity> <label-full> 
-  format-full-foreground = ${colors.color2}
+  format-full-foreground = ${colors.foreground}
 
   label-charging = %percentage%% [%time%]
-
   label-discharging = %percentage%% [%time%]
+  label-full = %percentage%% [full]
 
-  label-full = %percentage%%
+  label-charging-padding = 2
+  label-discharging-padding = 2
+  label-discharging-foreground = ${colors.color3}
+  label-full-padding = 2
 
-  ramp-capacity-0 = 
-  ramp-capacity-1 = 
-  ramp-capacity-2 = 
-  ramp-capacity-3 = 
-  ramp-capacity-4 = 
+  ramp-capacity-0 = 
+  ramp-capacity-1 = 
+  ramp-capacity-foreground = ${colors.color2}
+  ramp-capacity-padding = 0
 
-  bar-capacity-width = 10
-
-  animation-charging-0 = 
-  animation-charging-1 = 
-  animation-charging-2 = 
-  animation-charging-3 = 
-  animation-charging-4 = 
+  animation-charging-0 = 
+  animation-charging-1 = 
   animation-charging-framerate = 500
 
 [settings]

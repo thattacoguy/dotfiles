@@ -102,18 +102,6 @@ bindsym $mod+v split v
 # make focused container enter fullscreen
 bindsym $mod+f fullscreen toggle
 
-# change container layout
-# stacks
-# this stacks containers like file cards
-bindsym $mod+s layout stacking
-# tabbed
-# this shifts containers to a tabbed layout (like a browser)
-bindsym $mod+w layout tabbed
-# toggle split (default)
-# containers take up new space and split screen real estate
-# (this is the default behavior of i3)
-bindsym $mod+e layout toggle split
-
 # toggle floating focused container
 bindsym $mod+Shift+space floating toggle
 # switch between floating containers
@@ -170,20 +158,19 @@ gaps outer 0
 # resize container with the keyboard
 # (and also the mouse!)
 mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # exit resize mode
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  # exit resize mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 
 # enter resize mode
@@ -222,7 +209,6 @@ bindsym XF86AudioMute exec --no-startup-id ponymix toggle
 exec_always xinput set-prop 17 314 1
 # natural scrolling
 exec_always xinput set-prop 17 296 1
-
 
 ## screen brightness controls
 # increase screen brightness
