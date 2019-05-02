@@ -54,3 +54,6 @@ alias git.prune="git remote prune origin"
 ## shortcuts
 alias open.dotfiles="cd ~/code/dotfiles"
 
+## development
+# rvm for ruby management.
+export PATH="$PATH:$HOME/.rvm/bin"
