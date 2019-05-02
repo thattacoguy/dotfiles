@@ -36,7 +36,7 @@
     monitor = 0
     follow = none
     sticky_history = yes
-    show_indicators = yes
+    show_indicators = no
     line_height = 0
 
     padding = 5
