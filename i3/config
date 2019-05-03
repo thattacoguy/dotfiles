@@ -66,8 +66,10 @@ bindsym $mod+Return exec "termite --exec='/usr/bin/zsh --login'
 # delet this (container)
 bindsym $mod+Shift+q kill
 
-# bind rofi to $mod+d
-bindsym $mod+d exec --no-startup-id rofi -show run
+# bind rofi launcher to $mod+d
+bindsym $mod+d exec --no-startup-id rofi -show run 
+# bind rofi window switcher to $mod+tab
+bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 ## navigation
 # change focus with jkl;
