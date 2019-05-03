@@ -183,6 +183,7 @@ bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 # startup applications
 ## compton with smooth transitions
 exec_always compton -f
+exec_always intel-virtual-output
 ## notifications
 exec dunst
 ## network manager applet
