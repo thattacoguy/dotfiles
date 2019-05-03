@@ -34,7 +34,7 @@ export VISUAL="nano"
 alias sys.update="yay -Syu"
 
 # configuration shortcuts
-alias sys.config="subl3 ~/code/dofiles"
+alias sys.config="subl3 ~/code/dotfiles"
 
 ## zsh
 # zsh reload configuration
@@ -57,3 +57,8 @@ alias open.dotfiles="cd ~/code/dotfiles"
 ## development
 # rvm for ruby management.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# nvm for node management
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
