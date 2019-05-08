@@ -11,14 +11,14 @@
 # ====================
 
 [options]
-font = Source Code Pro 12
+font = Source Code Pro 11
 cursor_shape = ibeam
 scrollback_lines = 10000
 scrollbar = off
 
 [colors]
 foreground = #87d65e
-background = rgba(20, 20, 20, 0.9)
+background = rgba(20, 20, 20, 0.8)
 
 # black
 color0  = #151515

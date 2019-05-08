@@ -1,0 +1,138 @@
+/**
+ * tacowolf rofi theme
+ */
+
+* {  
+  /* colors */
+  /* black */
+  color0: #151515;
+  color8: #363636;
+
+  /* red*/
+  color1 : #d74c4c;
+  color9 : #f086aa;
+
+  /* green*/
+  color2 : #87d65e;
+  color10: #619844;
+
+  /* yellow*/
+  color3 : #fcf36e;
+  color11: #f4eb6a;
+
+  /* blue*/
+  color4 : #aadde3;
+  color12: #4faaf4;
+
+  /* magenta*/
+  color5 : #b87ac2;
+  color13: #9575cd;
+
+  /* cyan*/
+  color6 : #4bb5c1;
+  color14: #4bb5c1;
+
+  /* white*/
+  color7 : #ffffff;
+  color15: #e2e2e5;
+
+  /* gray */
+  gray: #2a2a2a;
+
+  foreground: @color2;
+  background: @color0;
+
+  background-color: @background;
+  text-color: @foreground;
+  spacing: 4;
+
+}
+
+#window {
+  background-color: @background;
+  border:           1;
+  padding:          10;
+}
+
+#mainbox {
+  border:  0;
+  padding: 0;
+}
+
+#message {
+  border:       2px 0px 0px ;
+  border-color: @background;
+  padding:      1px ;
+}
+
+#textbox {
+  text-color: @foreground;
+}
+
+#listview {
+  fixed-height: 0;
+  border:       2px 0px 0px ;
+  border-color: @background;
+  spacing:      2px ;
+  scrollbar:    true;
+  padding:      2px 0px 0px ;
+}
+
+#element {
+  border:  0;
+  padding: 1px ;
+}
+
+#element.normal.normal {
+  background-color: @background;
+  text-color:       @foreground;
+}
+
+#element.normal.urgent {
+  background-color: @background;
+  text-color:       @foreground;
+}
+
+#element.normal.active {
+  background-color: @background;
+  text-color:       @foreground;
+}
+
+#element.selected.normal {
+  background-color: @gray;
+  text-color:       @foreground;
+}
+
+#element.selected.urgent {
+  background-color: @gray;
+  text-color:       @foreground;
+}
+
+#element.selected.active {
+  background-color: @gray;
+  text-color:       @foreground;
+}
+
+#element.alternate.normal {
+  background-color: @background;
+  text-color:       @foreground;
+}
+
+#element.alternate.urgent {
+  background-color: @background;
+  text-color:       @foreground;
+}
+
+#element.alternate.active {
+  background-color: @background;
+  text-color:       @foreground;
+}
+
+#scrollbar {
+
+  width: 4px;
+  border: 0;
+  border-color: @background;
+  handle-width: 8px;
+  padding: 0;
+}

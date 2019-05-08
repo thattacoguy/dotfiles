@@ -10,63 +10,66 @@
 # license: mit
 # ====================
 
-# colors
-## black
-set $color1  #151515
-set $color8  #828282
+## colors
+# black
+set $color0  #151515
+set $color8  #363636
 
-## red
+# red
 set $color1  #d74c4c
 set $color9  #f086aa
 
-## green
+# green
 set $color2  #87d65e
 set $color10 #619844
 
-## yellow
+# yellow
 set $color3  #fcf36e
 set $color11 #f4eb6a
 
-## blue
+# blue
 set $color4  #aadde3
 set $color12 #4faaf4
 
-## magenta
+# magenta
 set $color5  #b87ac2
 set $color13 #9575cd
 
-## cyan
+# cyan
 set $color6  #4bb5c1
 set $color14 #4bb5c1
 
-## white
+# white
 set $color7  #ffffff
 set $color15 #e2e2e5
 
 ## container colors
-#                       border      background  text        indicator
-client.focused          $color2     $color2     $color2     $color2
-client.unfocused        $color8     $color8     $color7     $color1
-client.focused_inactive $color15    $color15    $color7     $color15
-client.urgent           $color1     $color1     $color3     $color1
+#                         border    background  text      indicator
+client.focused            $color8   $color2     $color2   $color2
+client.unfocused          $color8   $color8     $color7   $color8
+client.focused_inactive   $color8   $color8     $color8   $color8
+client.urgent             $color8   $color8     $color3   $color8
 
 # set windows key as $mod key
 set $mod Mod4
 
 # font
-font pango:Source Code Pro 12
+font pango:Source Code Pro 10
 
 # use mouse to drag containers around
 floating_modifier $mod
 
 # throw open a terminal
-bindsym $mod+Return exec termite
+# this is also running termite as a login shell because of rvm ¯\_(ツ)_/¯ 
+bindsym $mod+Return exec "termite --exec='/usr/bin/zsh --login'
 
 # delet this (container)
 bindsym $mod+Shift+q kill
 
-# bind rofi to $mod+d
-bindsym $mod+d exec --no-startup-id rofi -show run
+# bind rofi launcher to $mod+d
+bindsym $mod+d exec --no-startup-id rofi -show run 
+# bind rofi window switcher to $mod+tab
+bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 ## navigation
 # change focus with jkl;
@@ -91,7 +94,6 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-
 # horizontal orientation split
 # note: this means new containers will appear to the right of the focused container
 bindsym $mod+h split h
@@ -103,18 +105,6 @@ bindsym $mod+v split v
 # make focused container enter fullscreen
 bindsym $mod+f fullscreen toggle
 
-# change container layout
-# stacks
-# this stacks containers like file cards
-bindsym $mod+s layout stacking
-# tabbed
-# this shifts containers to a tabbed layout (like a browser)
-bindsym $mod+w layout tabbed
-# toggle split (default)
-# containers take up new space and split screen real estate
-# (this is the default behavior of i3)
-bindsym $mod+e layout toggle split
-
 # toggle floating focused container
 bindsym $mod+Shift+space floating toggle
 # switch between floating containers
@@ -123,47 +113,36 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# workspaces
-# i3 uses variables by default so to avoid repeating names everywhere
-# and i do it too because that's smart
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
+## workspaces
 # switch workspaces
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to a workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # move workspace to another
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Left move workspace to output left
+
+set $strip_workspace_numbers yes
 
 # reload i3
 bindsym $mod+Shift+c reload
@@ -173,7 +152,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'ready to go?' -b 'yeah, later' 'i3-msg exit'"
 
 # disable container titlebars
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 1
 
 ## gaps
 gaps inner 10
@@ -182,20 +161,19 @@ gaps outer 0
 # resize container with the keyboard
 # (and also the mouse!)
 mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # exit resize mode
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  # exit resize mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 
 # enter resize mode
@@ -207,6 +185,7 @@ bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 # startup applications
 ## compton with smooth transitions
 exec_always compton -f
+exec_always intel-virtual-output
 ## notifications
 exec dunst
 ## network manager applet
@@ -214,27 +193,32 @@ exec nm-applet
 ## status bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-
 # keyboard media keys
 ## audio controls
 # (used for pulseaudio)
-# increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') +5%
-#decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl list short sinks|grep RUNNING|awk '{print $1}') -5%
-# mute sound
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-# touchpad input configuration
-## tapping enabled
+# uses ponymix:
+# https://github.com/falconindy/ponymix
+# hasn't failed me yet!
+
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 5
+# toggle mute
+bindsym XF86AudioMute exec --no-startup-id ponymix toggle
+
+## touchpad input configuration
+# tapping enabled
 exec_always xinput set-prop 17 314 1
-## natural scrolling
+# natural scrolling
 exec_always xinput set-prop 17 296 1
 
-
 ## screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec light -A 10 
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10
 
 ## media player controls
 bindsym XF86AudioPause exec playerctl play-pause
@@ -242,4 +226,4 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 ## background
-exec_always feh --bg-fill /home/taco/pictures/wallpapers/current
+exec_always feh --bg-fill /mnt/salsa/sync/wallpapers/Steven\ Universe/upscaled/0d35a475-4e79-46f3-8a99-34da74af844d.png

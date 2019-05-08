@@ -12,16 +12,16 @@
 
 ## oh-my-zsh
 # source oh-my-zsh script into zsh
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 
 # zsh settings
 export UPDATE_ZSH_DAYS=7
-ZSH_THEME="spaceship"
 COMPLETION_WAITING_DOTS="true"
-
+ZSH_THEME="spaceship"
+export ZSH=$HOME/.oh-my-zsh
 # plugins
 plugins=(git web-search)
+#load zsh
+source $ZSH/oh-my-zsh.sh
 
 # terminal settings
 export TERM=xterm-256color
@@ -31,10 +31,10 @@ export VISUAL="nano"
 ### aliases
 ## sys
 # command aliases for arch
-alias sys.update="yay -Sya"
+alias sys.update="yay -Syu"
 
 # configuration shortcuts
-alias sys.config="subl3 ~/code/dotiles"
+alias sys.config="subl3 ~/code/dotfiles"
 
 ## zsh
 # zsh reload configuration
@@ -54,3 +54,11 @@ alias git.prune="git remote prune origin"
 ## shortcuts
 alias open.dotfiles="cd ~/code/dotfiles"
 
+## development
+# rvm for ruby management.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# nvm for node management
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

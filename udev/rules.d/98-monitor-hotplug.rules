@@ -1,0 +1,1 @@
+KERNEL=="card1", SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/taco/.Xauthority", RUN+="/bin/zsh /home/taco/.config/i3/hotplug.sh"  

@@ -1,11 +1,21 @@
 # dotfiles 
-> taco's super neat linux configuration stuff
+> taco's super cool linux configuration 😎😎😎
+
+<!-- todo: add shields.io -->
 
 `(\( ' v ' )/)`
 
 hey what's up
 
 it's easier for me to throw these files on github instead of losing them all the time, so enjoy them! they're under the [mit license], so just remember to keep that copyright notice in most things or something. talk to your ~~doctor~~ lawyer.
+
+ideally, this is system agnostic, but here's a list of configurations that i'm using and why i'm using them: 
+
+<!-- todo: add more programs -->
+
+|program|purpose|file(s)|
+|-------|-------|-------|
+|`dunst`|notification manager|`dunst/dunstrc`|
 
 i'll eventually write some more documentation.
 
