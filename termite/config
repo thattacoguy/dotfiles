@@ -18,7 +18,7 @@ scrollbar = off
 
 [colors]
 foreground = #87d65e
-background = rgba(20, 20, 20, 0.8)
+2background = rgba(20, 20, 20, 0.8)
 
 # black
 color0  = #151515
