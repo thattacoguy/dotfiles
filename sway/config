@@ -10,6 +10,8 @@
 # license: mit
 # ========================================
 
+include /etc/sway/config.d/*
+
 ## colors
 # black
 set $color0  #151515
@@ -79,8 +81,7 @@ set $term "kitty"
 gaps inner 10
 gaps outer 0
 
-default_border pixel
-hide_edge_borders both
+default_border none
 
 # set rofi as app launcher
 set $menu dmenu_path | rofi -show run
@@ -95,7 +96,7 @@ bindsym $mod+d exec $menu
 floating_modifier $mod normal
 
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec swaynag -t warning -m 'heading out so soon?' -b 'yes, farewell' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'heading out so soon?' -b 'yes, farewell!' 'swaymsg exit'
 
 ## navigation
 # change focus with jkl;
@@ -188,5 +189,3 @@ bindsym $mod+r mode "resize"
 bar {
   swaybar_command waybar
 }
-
-include /etc/sway/config.d/*
