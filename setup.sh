@@ -18,7 +18,7 @@ function update () {
 ## terminal
 # todo: install programs automatically
 
-update termite config ~/.config/termite/config
+update kitty config ~/.config/kitty/config
 update . .zshrc ~/.zshrc
 
 ## desktop environment

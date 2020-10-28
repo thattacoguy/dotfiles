@@ -72,7 +72,7 @@ set $w8 9
 set $w9 0
 
 # set terminal
-set $term termite
+set $term "kitty"
 
 ## window
 
@@ -87,7 +87,7 @@ set $menu dmenu_path | rofi -show run
 
 output * bg ~/photos/wallpapers/futabasakura.green.png stretch
 
-bindsym $mod+Return exec "$term --exec='/usr/bin/zsh --login'
+bindsym $mod+Return exec "$term"
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec $menu

@@ -25,7 +25,7 @@ source $ZSH/oh-my-zsh.sh
 
 # terminal settings
 export TERM=xterm-256color
-export TERMINAL=termite
+export TERMINAL=kitty
 export VISUAL="nano"
 
 ### aliases
