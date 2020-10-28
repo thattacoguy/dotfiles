@@ -1,7 +1,8 @@
 # dotfiles 
 > taco's super cool linux configuration 😎😎😎
 
-<!-- todo: add shields.io -->
+[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/compatibility-club-penguin.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/fo-real.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-out-pants.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
+
 
 `(\( ' v ' )/)`
 
@@ -15,7 +16,10 @@ ideally, this is system agnostic, but here's a list of configurations that i'm u
 
 |program|purpose|file(s)|
 |-------|-------|-------|
-|`dunst`|notification manager|`dunst/dunstrc`|
+|`kitty`|terminal emulator|[`kitty/kitty.conf`](kitty/kitty.conf)|
+|`rofi`|application launcher|[`rofi/`](rofi) [WIP]|
+|`sway`|wayland tiling window manager|[`sway/config`](sway/config)|
+|`waybar`|alternative sway titlebar|[`waybar/config`](waybar/config)|
 
 i'll eventually write some more documentation.
 

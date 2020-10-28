@@ -60,8 +60,8 @@ font pango:Source Code Pro 10
 floating_modifier $mod
 
 # throw open a terminal
-# this is also running termite as a login shell because of rvm ¯\_(ツ)_/¯ 
-bindsym $mod+Return exec "termite --exec='/usr/bin/zsh --login'
+# this is also running kitty as a login shell because of rvm ¯\_(ツ)_/¯ 
+bindsym $mod+Return exec "kitty --exec='/usr/bin/zsh --login'
 
 # delet this (container)
 bindsym $mod+Shift+q kill

@@ -16,7 +16,7 @@ configuration {
 /*  width: 50;*/
 /*  lines: 15;*/
 /*  columns: 1;*/
-  font: "Source Code Pro 12";
+  font: "Hack Regular 12";
 /*  bw: 1;*/
 /*  location: 0;*/
 /*  padding: 5;*/

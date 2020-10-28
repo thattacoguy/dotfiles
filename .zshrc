@@ -25,7 +25,7 @@ source $ZSH/oh-my-zsh.sh
 
 # terminal settings
 export TERM=xterm-256color
-export TERMINAL=termite
+export TERMINAL=kitty
 export VISUAL="nano"
 
 ### aliases
@@ -34,7 +34,7 @@ export VISUAL="nano"
 alias sys.update="yay -Syu"
 
 # configuration shortcuts
-alias sys.config="subl3 ~/code/dotfiles"
+alias sys.config="subl3 ~/dotfiles"
 
 ## zsh
 # zsh reload configuration
@@ -52,7 +52,13 @@ alias git.garbageman="git gc --auto"
 alias git.prune="git remote prune origin"
 
 ## shortcuts
-alias open.dotfiles="cd ~/code/dotfiles"
+alias open.dotfiles="cd ~/dotfiles"
+
+## misc
+# alias for the fuck, fixer for command line borks
+# https://github.com/nvbn/thefuck
+eval $(thefuck --alias)
+
 
 ## development
 # rvm for ruby management.

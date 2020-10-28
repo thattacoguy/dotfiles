@@ -18,25 +18,16 @@ function update () {
 ## terminal
 # todo: install programs automatically
 
-update termite config ~/.config/termite/config
+update kitty config ~/.config/kitty/config
 update . .zshrc ~/.zshrc
 
 ## desktop environment
 # window manager
-update i3 config ~/.config/i3/config
-update i3 lock.sh ~/.config/i3/lock.sh
+update wayland config ~/.config/i3/config
+update wayland lock.sh ~/.config/i3/lock.sh
 
 # notifications
 update dunst dunstrc ~/.config/dunst/dunstrc
 
 # navigation bar
-update polybar config ~/.config/polybar/config
-update polybar launch.sh ~/.config/polybar/launch.sh
-
-## gtk3
-
-update gtk-3.0 gtk.css ~/.config/gtk-3.0/gtk.css
-update gtk-3.0 settings.ini ~/.config/gtk-3.0/settings.ini
-
-# font configuration
-update fontconfig config ~/.config/fontconfig/fonts.conf
+update waybar config ~/.config/polybar/config
