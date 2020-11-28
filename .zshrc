@@ -10,13 +10,13 @@
 # license: mit
 # ====================
 
-## pure
+# pure
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-## oh-my-zsh
-# source oh-my-zsh script into zsh
+# oh-my-zsh
+## source oh-my-zsh script into zsh
 
 # zsh settings
 export UPDATE_ZSH_DAYS=7
@@ -25,7 +25,7 @@ export ZSH=$HOME/.oh-my-zsh
 # plugins
 plugins=(git web-search asdf)
 
-#load zsh
+# load zsh
 source $ZSH/oh-my-zsh.sh
 
 # terminal settings
@@ -33,31 +33,35 @@ export TERM=xterm-256color
 export TERMINAL=kitty
 export VISUAL="nano"
 
-### aliases
+# global vars
+## enable wayland
+export MOZ_ENABLE_WAYLAND=1
+
+# aliases
 ## sys
-# command aliases for arch
+### command aliases for arch
 alias sys.update="yay -Syu"
 
-# configuration shortcuts
-alias dot.config="subl ~/dotfiles"
+### configuration shortcuts
+alias dotfiles="subl ~/.dotfiles"
 
 ## zsh
-# zsh reload configuration
+### zsh reload configuration
 alias zsh.reload="source ~/.zshrc"
-# run zsh as login shell
-#   remember to `exit` afterwards!!!
+### run zsh as login shell
+###   remember to `exit` afterwards!!!
 alias zsh.login="$(which zsh) -l"
-# upgrade oh-my-zsh
+### upgrade oh-my-zsh
 alias zsh.upgrade="omz update"
 
 ## git 
-# runs an automatic git garbage collector
+### runs an automatic git garbage collector
 alias git.garbageman="git gc --auto"
-# clean dead origin branches
+### clean dead origin branches
 alias git.prune="git remote prune origin"
 
 ## shortcuts
-alias open.dotfiles="cd ~/dotfiles"
+alias open.dotfiles="cd ~/.dotfiles"
 
 
 ## asdf

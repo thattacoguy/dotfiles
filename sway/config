@@ -81,12 +81,12 @@ set $term "kitty"
 gaps inner 10
 gaps outer 0
 
-default_border none
+default_border pixel none
 
 # set rofi as app launcher
-set $menu dmenu_path | rofi -show run
+set $menu dmenu_path | rofi -modi combi -show combi
 
-output * bg ~/photos/wallpapers/futabasakura.green.png stretch
+# output * bg ~/photos/wallpapers/futabasakura.green.png stretch
 
 bindsym $mod+Return exec "$term"
 bindsym $mod+Shift+q kill

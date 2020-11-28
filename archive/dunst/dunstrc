@@ -1,0 +1,74 @@
+# ====================
+#      _                 _
+#     | |               | |
+#   __| |_   _ _ __  ___| |_
+#  / _` | | | | '_ \/ __| __|
+# | (_| | |_| | | | \__ \ |_
+#  \__,_|\__,_|_| |_|___/\__|
+# ====================
+# author: @takouhai
+# license: mit
+# ====================
+
+[global]
+    monitor = 0
+    follow = none
+    title = notification
+    class = notification
+    verbosity = mesg
+    geometry = "500x30-60+80"
+    corner_radius = 0
+
+    font = SF Pro Display 10
+
+    format = "%a - %s\n%p%b"
+    markup = yes
+    sort = no
+    indicate_hidden = yes
+    alignment = left
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    shrink = yes
+    transparency = 0
+    idle_threshold = 20
+    monitor = 0
+    follow = none
+    sticky_history = yes
+    show_indicators = no
+    line_height = 0
+
+    padding = 5
+    horizontal_padding = 5
+
+    separator_height = 1
+    separator_color = "#363636"
+
+    startup_notification = false
+
+    browser = /usr/bin/google-chrome-stable -new-tab
+
+    frame_width = 1
+    frame_color = "#363636"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = mod4+plus
+    context = mod4+shift+plus
+
+[urgency_low]
+    background = "#151515"
+    foreground = "#ffffff"
+    timeout = 10
+
+[urgency_normal]
+    background = "#151515"
+    foreground = "#87d65e"
+    timeout = 10
+
+[urgency_critical]
+    background = "#d74c4c"
+    foreground = "#fcf36e"
+    timeout = 20

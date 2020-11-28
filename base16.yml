@@ -1,0 +1,18 @@
+scheme: "esteban"
+author: "takouhai"
+base00: "1f1f1f" # default background
+base01: "333333" # lighter background
+base02: "4d4d4d" # selection background
+base03: "626483" # comments, line highlighting
+base04: "62d6e8" # dark foreground
+base05: "f7f7f7" # default foreground
+base06: "eeeeee" # light foreground
+base07: "ffffff" # light background
+base08: "fe6269" # variables, tags, markup lists
+base09: "fed047" # integers, booleans, consts, urls
+base0a: "fbe994" # classes, markup bold
+base0b: "8ae566" # strings, markup code
+base0c: "bae4eb" # support, regex, markup quotes
+base0d: "4e819c" # functions, methods, ids, headings
+base0e: "f1b7d1" # keywords, storage, markup italics
+base0f: "00f769" # closing language tags, deprecated
