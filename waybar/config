@@ -32,7 +32,9 @@
         "tooltip": false
     },
     "clock": {
-        "format": "{: %I:%M %p }",
+        "format": "{:  %I:%M %p }",
+        "format-alt": "{:  %a | %-m/%e/%Y}",
+        "format-alt-click": "click-left",
         "tooltip-format": "{: %I:%M:%S | %A, %B %e, %Y}",
         "tooltip": true
     },
@@ -50,7 +52,7 @@
     },
     "network": {
         "interval": 2,
-        "format": " {bandwidthUpBits} -  {bandwidthDownBits} ﳤ {icon}",
+        "format": "  {bandwidthUpBits} -   {bandwidthDownBits} ﳤ {icon}",
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
         "format-icons": {

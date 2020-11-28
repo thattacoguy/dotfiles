@@ -1,7 +1,7 @@
 # ========================================
 #  _____      ____ _ _   _ 
 # / __\ \ /\ / / _` | | | |
-# \__ \\ V  V / (_| | |_| |
+# \__ \\ V  V / (_ | |_| |
 # |___/ \_/\_/ \__,_|\__, |
 #                     __/ |
 #                    |___/ 
@@ -57,8 +57,8 @@ set $mod Mod4
 
 # set directions
 set $left j
-set $down l
 set $up k
+set $down l
 set $right semicolon 
 
 # set workspaces
@@ -84,9 +84,9 @@ gaps outer 0
 default_border pixel none
 
 # set rofi as app launcher
-set $menu dmenu_path | rofi -modi combi -show combi
+set $menu dmenu_path | rofi -modi combi -show combi -terminal kitty
 
-# output * bg ~/photos/wallpapers/futabasakura.green.png stretch
+output "*" bg $HOME/pictures/wallpapers/wall.current fill
 
 bindsym $mod+Return exec "$term"
 bindsym $mod+Shift+q kill
@@ -98,11 +98,20 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'heading out so soon?' -b 'yes, farewell!' 'swaymsg exit'
 
+## media keys 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# brightness keys
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
 ## navigation
 # change focus with jkl;
 bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
+bindsym $mod+l focus down
+bindsym $mod+k focus up
 bindsym $mod+semicolon focus right
 # or with ←↑↓→
 bindsym $mod+Left focus left
@@ -112,8 +121,8 @@ bindsym $mod+Right focus right
 
 # move focused container with jkl;
 bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+bindsym $mod+Shift+l move down
+bindsym $mod+Shift+k move up
 bindsym $mod+Shift+semicolon move right
 # or with ←↑↓→
 bindsym $mod+Shift+Left move left
@@ -185,6 +194,15 @@ bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
+
+# set touchpad options
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
+# use waybar instead of the default bar
 
 bar {
   swaybar_command waybar
