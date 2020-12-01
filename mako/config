@@ -1,1 +1,8 @@
-font = "Hack Nerd Font" 14 
+font=Hack Nerd Font 12
+background-color=#151515CC
+text-color=#eeeeee
+anchor=bottom-left
+margin=5
+border-radius=3
+border-size=3
+border-color=#87d65eCC

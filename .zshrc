@@ -43,7 +43,8 @@ export MOZ_ENABLE_WAYLAND=1
 alias sys.update="yay -Syu"
 
 ### configuration shortcuts
-alias dotfiles="subl ~/.dotfiles"
+alias dot.config="subl ~/.dotfiles"
+alias dot.files="cd ~/.dotfiles"
 
 ## zsh
 ### zsh reload configuration
@@ -56,13 +57,9 @@ alias zsh.upgrade="omz update"
 
 ## git 
 ### runs an automatic git garbage collector
-alias git.garbageman="git gc --auto"
+alias git.clean="git gc --auto"
 ### clean dead origin branches
 alias git.prune="git remote prune origin"
-
-## shortcuts
-alias open.dotfiles="cd ~/.dotfiles"
-
 
 ## asdf
 export ASDF_DIR
@@ -148,6 +145,7 @@ _asdf() {
 
 complete -F _asdf asdf
 
+PATH="$PATH:/snap/bin"
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig:/usr/share/pkgconfig
 
 ## misc

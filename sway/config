@@ -81,12 +81,12 @@ set $term "kitty"
 gaps inner 10
 gaps outer 0
 
-default_border pixel none
 ### set border for windows
+default_border pixel none
 for_window [app_id=".*"] border none
 
 ### set ulauncher as app launcher
-exec GDK_BACKEND=wayland ulauncher --hide-window
+exec GDK_BACKEND=wayland ulauncher-toggle --hide-window
 for_window [app_id="ulauncher"] floating enable, border none
 bindsym $mod+d exec ulauncher --no-window-shadow
 ### ...and use wofi as a backup
