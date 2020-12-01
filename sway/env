@@ -3,3 +3,4 @@ MOZ_ENABLE_WAYLAND=1
 GTK_BACKEND=wayland
 GDK_BACKEND=wayland
 DISPLAY=":0.0"
+PATH="$PATH:/snap/bin"

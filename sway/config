@@ -47,10 +47,10 @@ set $color15 #e2e2e5
 
 ## container colors
 #                         border    background  text      indicator
-client.focused            $color8   $color2     $color2   $color2
-client.unfocused          $color8   $color8     $color7   $color8
-client.focused_inactive   $color8   $color8     $color8   $color8
-client.urgent             $color8   $color8     $color3   $color8
+client.focused            $color0   $color0     $color7    $color2
+client.unfocused          $color0   $color0     $color15   $color8
+client.focused_inactive   $color0   $color0     $color15   $color8
+client.urgent             $color0   $color0     $color3    $color8
 
 ## vars
 set $mod Mod4
@@ -82,17 +82,31 @@ gaps inner 10
 gaps outer 0
 
 default_border pixel none
+### set border for windows
+for_window [app_id=".*"] border none
 
-# set rofi as app launcher
-set $menu dmenu_path | rofi -modi combi -show combi -terminal kitty
+### set ulauncher as app launcher
+exec GDK_BACKEND=wayland ulauncher --hide-window
+for_window [app_id="ulauncher"] floating enable, border none
+bindsym $mod+d exec ulauncher --no-window-shadow
+### ...and use wofi as a backup
+#### since i'm using sway, wofi (which is built into sway) 
+#### can launch things pretty much natively without worrying
+#### about wayland compatability
+#### (rofi was launching things in x for me)
+bindsym $mod+e exec wofi --show run,drun,dmenu
 
+### set background
 output "*" bg $HOME/pictures/wallpapers/wall.current fill
 
+### open current terminal
 bindsym $mod+Return exec "$term"
+
+### murder windows
 bindsym $mod+Shift+q kill
+bindsym $mod+Shift+x exec swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr "%a %e.%m.%Y" --timestr "%k:%M"
 
-bindsym $mod+d exec $menu
-
+### make windows float
 floating_modifier $mod normal
 
 bindsym $mod+Shift+c reload
@@ -104,8 +118,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # brightness keys
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 ## navigation
 # change focus with jkl;
