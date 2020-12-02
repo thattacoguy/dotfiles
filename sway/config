@@ -1,7 +1,7 @@
 # ========================================
 #  _____      ____ _ _   _ 
 # / __\ \ /\ / / _` | | | |
-# \__ \\ V  V / (_ | |_| |
+# \__ \\ V  V / (_) | |_| |
 # |___/ \_/\_/ \__,_|\__, |
 #                     __/ |
 #                    |___/ 
@@ -78,7 +78,7 @@ set $term "kitty"
 
 ## window
 
-gaps inner 10
+gaps inner 5
 gaps outer 0
 
 ### set border for windows
@@ -86,9 +86,9 @@ default_border pixel none
 for_window [app_id=".*"] border none
 
 ### set ulauncher as app launcher
-exec GDK_BACKEND=wayland ulauncher-toggle --hide-window
+exec GDK_BACKEND=wayland ulauncher --hide-window
 for_window [app_id="ulauncher"] floating enable, border none
-bindsym $mod+d exec ulauncher --no-window-shadow
+bindsym $mod+d exec ulauncher-toggle --no-window-shadow
 ### ...and use wofi as a backup
 #### since i'm using sway, wofi (which is built into sway) 
 #### can launch things pretty much natively without worrying

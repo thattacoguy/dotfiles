@@ -14,12 +14,13 @@ ideally, this is system agnostic, but here's a list of configurations that i'm u
 
 <!-- todo: add more programs -->
 
-|program|purpose|file(s)|
-|-------|-------|-------|
-|`kitty`|terminal emulator|[`kitty/kitty.conf`](kitty/kitty.conf)|
-|`rofi`|application launcher|[`rofi/`](rofi) [WIP]|
-|`sway`|wayland tiling window manager|[`sway/config`](sway/config)|
-|`waybar`|alternative sway titlebar|[`waybar/config`](waybar/config)|
+|program|purpose|file(s)|link|
+|---|---|---|---|
+|`kitty`|terminal emulator|[`kitty/kitty.conf`](kitty/kitty.conf)|[🔗](https://github.com/kovidgoyal/kitty)
+|`sway`|wayland tiling window manager|[`sway/config`](sway/config)|[🔗](https://github.com/swaywm/sway)|
+|`mako`|wayland notification daemon|[`mako/config`](mako/config)|[🔗](https://github.com/emersion/mako)|
+|`wofi`|dmenu alternative|`included with sway`|[🔗](https://hg.sr.ht/~scoopta/wofi)|
+|`ulauncher`|modern application launcher|[`included with sway`|[🔗](https://github.com/Ulauncher/Ulauncher)
 
 i'll eventually write some more documentation.
 
