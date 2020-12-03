@@ -60,7 +60,7 @@
             "ethernet": [""],
             "disconnected": [""]
         },
-        "on-click": "kitty -e iwctl",
+        "on-click": "alacritty -e iwctl",
     "tooltip": false
     },
     "pulseaudio": {
@@ -73,7 +73,7 @@
             "default": ["", "", ""]
         },
         "scroll-step": 10,
-        "on-click": "kitty -e ncpamixer",
+        "on-click": "alacritty -e ncpamixer",
         "tooltip": false
     },
     "idle_inhibitor": {

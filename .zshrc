@@ -30,7 +30,7 @@ source $ZSH/oh-my-zsh.sh
 
 # terminal settings
 export TERM=xterm-256color
-export TERMINAL=kitty
+export TERMINAL=alacritty
 export VISUAL="nano"
 
 # global vars
@@ -145,8 +145,15 @@ _asdf() {
 
 complete -F _asdf asdf
 
-PATH="$PATH:/snap/bin"
-PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig:/usr/share/pkgconfig
+export GOROOT="$(asdf where golang)/go"
+export PATH=$PATH:$GOROOT/bin
+export GOPATH="/home/taco/go"
+export PATH=$PATH:$GOPATH/bin
+export GOPATH=$GOPATH:/home/taco/code/sandbox/go
+
+export PYTHONPATH="$(asdf where python)/site-packages"
+
+alias go.reshim='asdf reshim golang && export GOROOT="$(asdf where golang)/go"'
 
 ## misc
 # alias for the fuck, fixer for command line borks

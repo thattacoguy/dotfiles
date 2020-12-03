@@ -16,7 +16,7 @@ ideally, this is system agnostic, but here's a list of configurations that i'm u
 
 |program|purpose|file(s)|link|
 |---|---|---|---|
-|`kitty`|terminal emulator|[`kitty/kitty.conf`](kitty/kitty.conf)|[🔗](https://github.com/kovidgoyal/kitty)
+|`alacritty`|terminal emulator|[`alacritty/alacritty.conf`](alacritty/alacritty.conf)|[🔗](https://github.com/alacritty/alacritty)
 |`sway`|wayland tiling window manager|[`sway/config`](sway/config)|[🔗](https://github.com/swaywm/sway)|
 |`mako`|wayland notification daemon|[`mako/config`](mako/config)|[🔗](https://github.com/emersion/mako)|
 |`wofi`|dmenu alternative|`included with sway`|[🔗](https://hg.sr.ht/~scoopta/wofi)|

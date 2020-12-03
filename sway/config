@@ -74,7 +74,7 @@ set $w8 9
 set $w9 0
 
 # set terminal
-set $term "kitty"
+set $term "alacritty"
 
 ## window
 
