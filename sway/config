@@ -86,9 +86,8 @@ default_border pixel none
 for_window [app_id=".*"] border none
 
 ### set ulauncher as app launcher
-exec GDK_BACKEND=wayland ulauncher --hide-window
 for_window [app_id="ulauncher"] floating enable, border none
-bindsym $mod+d exec ulauncher-toggle --no-window-shadow
+bindsym $mod+d exec GDK_BACKEND=wayland ulauncher --no-window-shadow
 ### ...and use wofi as a backup
 #### since i'm using sway, wofi (which is built into sway) 
 #### can launch things pretty much natively without worrying

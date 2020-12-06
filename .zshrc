@@ -23,7 +23,7 @@ export UPDATE_ZSH_DAYS=7
 COMPLETION_WAITING_DOTS="true"
 export ZSH=$HOME/.oh-my-zsh
 # plugins
-plugins=(git web-search asdf)
+plugins=(git web-search) #asdf)
 
 # load zsh
 source $ZSH/oh-my-zsh.sh
@@ -154,6 +154,9 @@ export GOPATH=$GOPATH:/home/taco/code/sandbox/go
 export PYTHONPATH="$(asdf where python)/site-packages"
 
 alias go.reshim='asdf reshim golang && export GOROOT="$(asdf where golang)/go"'
+
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
 
 ## misc
 # alias for the fuck, fixer for command line borks
