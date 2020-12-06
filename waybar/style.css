@@ -1,6 +1,6 @@
 * {
     border: none;
-    border-radius: 6px;
+    border-radius: 0px 0px 6px 6px;
     font-family: Hack Nerd Font, monospace;
     font-size: 14px;
 }
@@ -25,30 +25,27 @@ window#waybar.hidden {
 }
 
 #workspaces {
+    background: linear-gradient(to top, #151515, #151515 6px, #262626 6px);
     background-color: #262626;
-    margin-left: 5px;
-    border-radius: 5px;
-    box-shadow: inset 0 -6px #151515;
+    border-radius: 0px 0px 6px 6px;
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 6px;
     color: #ffffff;
-    /* Use box-shadow instead of border so the text isn't offset */
-    border-radius: 0px;
+    border-radius: 0px 0px 6px 6px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
     background: #2f2f2f;
     border-radius: 6px;
-    box-shadow: inset 0 -6px #141414;
 }
 
 #workspaces button.focused {
     background-color: #87d65e;
+    border-radius: 0px 0px 6px 6px;
     box-shadow: inset 0 -6px #4f7f38;
-    border-radius: 6px;
 }
 
 #workspaces button.urgent {
@@ -57,7 +54,6 @@ window#waybar.hidden {
 
 #mode {
     background-color: #454545;
-    border-top: 3px solid #ffffff;
 }
 
 #clock,
@@ -73,11 +69,11 @@ window#waybar.hidden {
 #mode,
 #idle_inhibitor,
 #mpd {
-    background: #262626;
-    padding: 10px;
-    margin: 0 5px;
+    background: linear-gradient(to top, #151515, #151515 6px, #262626 6px);
+    padding: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
     color: #ffffff;
-    box-shadow: inset 0 -6px #151515;
 }
 
 #battery.charging {
