@@ -23,7 +23,7 @@ export UPDATE_ZSH_DAYS=7
 COMPLETION_WAITING_DOTS="true"
 export ZSH=$HOME/.oh-my-zsh
 # plugins
-plugins=(git web-search) #asdf)
+plugins=(git web-search asdf)
 
 # load zsh
 source $ZSH/oh-my-zsh.sh
