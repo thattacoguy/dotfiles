@@ -32,7 +32,7 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 export TERMINAL=alacritty
 export VISUAL="nano"
-
+export GRIM_DEFAULT_DIR="${HOME}/pictures"
 # global vars
 ## enable wayland
 export MOZ_ENABLE_WAYLAND=1

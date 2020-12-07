@@ -88,7 +88,8 @@ for_window [app_id=".*"] border none
 exec_always $HOME/.dotfiles/sway/import-gsettings.sh \
     gtk-theme:gtk-theme-name \
     icon-theme:gtk-icon-theme-name \
-    cursor-theme:gtk-cursor-theme-name
+    cursor-theme:gtk-cursor-theme-name \
+    cursor-theme:gtk-cursor-theme-size
 
 ### set ulauncher as app launcher
 exec GDK_BACKEND=wayland ulauncher --hide-window
@@ -102,7 +103,6 @@ bindsym $mod+d exec GDK_BACKEND=wayland ulauncher-toggle --no-window-shadow
 bindsym $mod+e exec wofi --show run,drun,dmenu
 
 for_window [app_id="thunar"] floating enable, border none
-
 
 ### set background
 output "*" bg $HOME/pictures/wallpapers/wall.current fill
