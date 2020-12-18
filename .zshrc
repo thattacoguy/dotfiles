@@ -23,7 +23,7 @@ export UPDATE_ZSH_DAYS=7
 COMPLETION_WAITING_DOTS="true"
 export ZSH=$HOME/.oh-my-zsh
 # plugins
-plugins=(git web-search asdf)
+plugins=(git web-search)# asdf)
 
 # load zsh
 source $ZSH/oh-my-zsh.sh
@@ -36,6 +36,7 @@ export GRIM_DEFAULT_DIR="${HOME}/pictures"
 # global vars
 ## enable wayland
 export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
 
 # aliases
 ## sys
@@ -155,28 +156,9 @@ export PYTHONPATH="$(asdf where python)/site-packages"
 
 alias go.reshim='asdf reshim golang && export GOROOT="$(asdf where golang)/go"'
 
-export MOZ_ENABLE_WAYLAND=1
-export MOZ_DBUS_REMOTE=1
-
 ## misc
 # alias for the fuck, fixer for command line borks
 # https://github.com/nvbn/thefuck
 eval $(thefuck --alias)
 
 eval "$(direnv hook zsh)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/taco/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/taco/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/taco/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/taco/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-

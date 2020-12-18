@@ -1,8 +1,10 @@
 * {
     border: none;
     border-radius: 0px 0px 6px 6px;
-    font-family: Hack Nerd Font, monospace;
-    font-size: 14px;
+    font-family: Monoid Nerd Font, monospace;
+    font-weight: normal;
+    font-style:  normal;
+    font-size: 12px;
 }
 
 window#waybar {
