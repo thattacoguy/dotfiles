@@ -146,15 +146,17 @@ _asdf() {
 
 complete -F _asdf asdf
 
-export GOROOT="$(asdf where golang)/go"
-export PATH=$PATH:$GOROOT/bin
-export GOPATH="/home/taco/go"
-export PATH=$PATH:$GOPATH/bin
-export GOPATH=$GOPATH:/home/taco/code/sandbox/go
+# export GOROOT="$(asdf where golang)/go"
+# export PATH=$PATH:$GOROOT/bin
+# export GOPATH="/home/taco/go"
+# export PATH=$PATH:$GOPATH/bin
+# export GOPATH=$GOPATH:/home/taco/code/sandbox/go
 
 export PYTHONPATH="$(asdf where python)/site-packages"
 
-alias go.reshim='asdf reshim golang && export GOROOT="$(asdf where golang)/go"'
+# alias go.reshim='asdf reshim golang && export GOROOT="$(asdf where golang)/go"'
+
+PATH="/home/taco/.local/bin:$PATH"
 
 ## misc
 # alias for the fuck, fixer for command line borks
