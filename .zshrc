@@ -16,14 +16,14 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # oh-my-zsh
-## source oh-my-zsh script into zsh
+## source oh-my-zsh script nito zsh
 
 # zsh settings
 export UPDATE_ZSH_DAYS=7
 COMPLETION_WAITING_DOTS="true"
 export ZSH=$HOME/.oh-my-zsh
 # plugins
-plugins=(git web-search)# asdf)
+plugins=(git web-search asdf gpg-agent)
 
 # load zsh
 source $ZSH/oh-my-zsh.sh
